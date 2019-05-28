@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="page-body" style='background:#f9f9f9;'>
+    <view class="page-section">
+      <view wx:for="{{list}}" wx:for-index="idx"  wx:for-item="item" id="{{item.id}}" class="{{idx%2 == 0 ? 'box' : 'box2'}}" bindtap='goVideo'>
+        <image mode='aspectFill' src="{{pub_url}}{{item.itemImage}}" class="img"></image>
+        <view class='ohuo'>
+          <view class="fbt">
+            {{item.name}}
+          </view>
+          <view style='width:40%;text-align:right;'>
+            <image class="xxin" src="/img/hxin.png"></image>
+            <span class="zbt">{{item.likeNumStr}}</span>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

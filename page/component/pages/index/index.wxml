@@ -1,0 +1,247 @@
+<scroll-view scroll-y style="height: {{scroll_height}}px;">
+  <image mode="widthFix" style='width:{{scroll_width}}px;position:absolute;' src="/img/index_bg.png"></image>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style='margin-left:5%;margin-right:5%;border-radius:8rpx;border:1px solid #ffffff;' >
+    <block wx:for="{{banners}}">
+      <swiper-item>
+        <image src="{{pub_url}}{{item.picpath}}" class="slide-image" style='width:100%;height:100%;border-radius:8rpx;' />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="menu_box">
+    <view id="group-mp" bindtap='goGroup' style="width:20%;">
+      <image mode="widthFix"  class='menu' src="/img/ticket_qu.png"></image>
+    </view>
+    <view id="group-game" bindtap='goGroup' style="width:20%;">
+      <image mode="widthFix" class='menu' src="/img/game.png"></image>
+    </view>
+    <view id="group-wj" bindtap='goGroup' style="width:20%;">
+      <image mode="widthFix" class='menu' src="/img/share.png"></image>
+    </view>
+    <view id="book" bindtap='goGroup' style="width:20%;">
+      <image mode="widthFix" class='menu' src="/img/redbook.png"></image>
+    </view>
+    <view id="group-cy" bindtap='goGroup' style="width:20%;">
+      <image mode="widthFix" class='menu' src="/img/drink.png"></image>
+    </view>
+  </view>
+  <view style='position:absolute;width:100%;margin-bottom:100rpx;'>
+  <view class="dhk" style=''>
+    <view>
+      <image  mode="widthFix" style='width:80%;margin-left:10%;padding-top:40rpx;' src="/img/b_bg.png"></image>
+    </view>
+    <view style='width:100%;display:flex;text-align:center;margin-top:40rpx;margin-bottom:56rpx;'>
+      <view class='znm'>
+        <view wx:if="{{buyPage == 0}}">
+          <view class="m_act">票</view>
+          <view class="menu_line"></view>
+        </view>
+        <view wx:else class="m_def">票</view>
+      </view>
+      <view class='znm'>
+        <view wx:if="{{buyPage == 1}}">
+          <view class="m_act">卡</view>
+          <view class="menu_line"></view>
+        </view>
+        <view wx:else class="m_def">卡</view>
+      </view>
+      <view class='znm'>
+        <view wx:if="{{buyPage == 2}}">
+          <view class="m_act">币</view>
+          <view class="menu_line"></view>
+        </view>
+        <view wx:else class="m_def">币</view>
+      </view>
+    </view>
+    <view style=''>
+      <swiper style='margin-left:5%;margin-right:5%;border-radius:8rpx;border:1px solid #ffffff;margin-bottom:40rpx;height:{{swiperHeight}}px;' bindchange="buyZone" >
+    <swiper-item>
+      <view wx:for="{{list}}" wx:for-item="item" id="{{item.id}}" data-type="{{item.type}}" bindtap='goTicket' class='xmhz'>
+        <view style='width:30%;'>
+            <image class="ztp" src="{{pub_url}}{{item.image}}"></image>
+        </view>
+        <view style='width:70%;position:relative;padding-left:30rpx;'>
+          <image class="yjt" src="/img/yjt.png"></image>
+          <view class='dxt'>
+            <view class="sdz">{{item.name}}</view>
+            <view class='sxz'>
+              <span wx:if="{{item.ticketScope != ''}}">{{item.ticketScope}}</span>
+              <span wx:else>{{item.remark}}</span>
+            </view>
+          </view>
+          <view style='position:absolute;bottom:0;'>
+            <view class='xhui'>￥{{item.priceBean.price}}<span style="padding-left:20rpx;padding-right:14rpx;">|</span>余额￥{{item.priceBean.vipPrice}}</view>
+            <view class='xhong'>
+            ￥{{item.priceBean.goldPrice}}<span style="padding-left:20rpx;padding-right:14rpx;">|</span>余额￥{{item.priceBean.vipGoldPrice}}
+            <image class='vipImg' src="/img/vip.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view wx:for="{{list_card}}" wx:for-item="item" id="{{item.id}}" bindtap='goCard' class='xmhz'>
+        <view style='width:30%;'>
+            <image class="ztp" src="{{pub_url}}{{item.image}}"></image>
+        </view>
+        <view style='width:70%;position:relative;padding-left:30rpx;'>
+          <image class="yjt" src="/img/yjt.png"></image>
+          <view class='dxt'>
+            <view class="sdz">{{item.name}}</view>
+            <view class='sxz'>{{item.remark}}</view>
+          </view>
+          <view style='position:absolute;bottom:0;'>
+            <view class='xhui'>￥{{item.priceBean.price}}<span style="padding-left:20rpx;padding-right:14rpx;">|</span>余额￥{{item.priceBean.vipPrice}}</view>
+            <view class='xhong'>
+            ￥{{item.priceBean.goldPrice}}<span style="padding-left:20rpx;padding-right:14rpx;">|</span>余额￥{{item.priceBean.vipGoldPrice}}
+            <image class='vipImg' src="/img/vip.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view wx:for="{{list_game}}" wx:for-item="item" id="{{item.id}}" bindtap='goGame' class='xmhz'>
+        <view style='width:30%;'>
+            <image class="ztp" src="{{pub_url}}{{item.image}}"></image>
+        </view>
+        <view style='width:70%;position:relative;padding-left:30rpx;'>
+          <image class="yjt" src="/img/yjt.png"></image>
+          <view class='dxt'>
+            <view class="sdz">{{item.name}}</view>
+            <view class='sxz'>{{item.remark}}</view>
+          </view>
+          <view style='position:absolute;bottom:0;'>
+            <view class='xhui'>￥{{item.priceBean.price}}<span style="padding-left:20rpx;padding-right:14rpx;">|</span>余额￥{{item.priceBean.vipPrice}}</view>
+            <view class='xhong'>
+            ￥{{item.priceBean.goldPrice}}<span style="padding-left:20rpx;padding-right:14rpx;">|</span>余额￥{{item.priceBean.vipGoldPrice}}
+            <image class='vipImg' src="/img/vip.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+    
+  </swiper>
+  
+    </view>
+    
+  </view>
+  </view>
+</scroll-view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <view style='display:none;' class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="" style=''>
+        <scroll-view class="scroll-view_H" scroll-left="{{scrollLeft}}" scroll-x="{{scrollStatus}}" bindscroll="scroll" style="height:{{scroll_height}}px;">
+           <image style="width:350%;height:100%;position:absolute;"
+            mode="444"
+            src="./bg1.png"
+          ></image>
+
+<view id="demo1" class="scroll-view-item_H" style='position:relative;height:{{scroll_height}}px;display:flex;padding-top:30%;flex-direction:row;width:350%;'>
+            <view class="flex-item" style='width:33.333%;text-align:right;position:relative;'>
+              <image style="width:220px;height:180px;position:absolute;right:-40%;top:-10%;"
+                mode="444"
+                src="./zhs.png"
+              ></image>
+                <image style="width:240px;height:150px;position:absolute;right:-100%;top:-5%;"
+                mode="444"
+                src="./yx.png"
+              ></image>
+              <view><image style="width:260px;height:220px;position:absolute;right:0px;top:60px;"
+                mode="444"
+                src="./zrhy.png"
+              ></image>
+              </view>
+            </view>
+             <view class="flex-item" style='width:33.333%;position:relative;'>
+           <image style="width:700rpx;height:700rpx;"
+            mode="444"
+            src="./ylc.png" bindtap="tapName"
+          ></image>
+                    <view><image style="width:220px;height:200px;position:absolute;right:80%;top:28%;"
+            mode="444"
+            src="./qzxt.png"
+          ></image></view>
+           <view><image style="width:220px;height:190px;position:absolute;top:38%;left:-20%;right:0;margin:auto;"
+            mode="444"
+            src="./bbrj.png"
+          ></image></view>
+          </view>
+           <view class="flex-item" style='width:33.333%;text-align:left;position:relative;'>
+               
+            <view><image style="width:220px;height:220px;position:absolute;top:80rpx;left:-18%;"
+              mode="444"
+              src="./ppjy.png"
+            ></image></view>
+            <view><image style="width:180px;height:180px;position:absolute;top:28%;left:-30%;"
+              mode="444"
+              src="./sc.png"
+            ></image></view>
+            </view>
+          </view>
+           <image style="width:50px;height:20px;position:absolute;" class="cloud"
+            mode="444"
+            src="./y1.png"
+          ></image>
+          <image style="width:120px;height:35px;position:absolute;"
+            mode="444"
+            src="./y2.png" class="cloud2"
+          ></image>
+          <image style="width:180px;height:50px;position:absolute;"
+            mode="444"
+            src="./y3.png" class="cloud3"
+          ></image>
+                    <image style="width:180px;height:50px;padding-top:40%;position:absolute;"
+            mode="444"
+            src="./y4.png" class="cloud3"
+          ></image>
+                    <image style="width:180px;height:40px;padding-top:70%;position:absolute;"
+            mode="444"
+            src="./y5.png" class="cloud2"
+          ></image>
+
+        </scroll-view>
+         <view style="display: flex;position: fixed;width: 100%;text-align: center;bottom: 20px;">
+	          <view bindtap="goCz" style="width: 33.333%;"><span style="background: #fff;padding: 10px 30px;border-radius: 20px;color:#000000;font-weight:600;box-shadow:0px 0px 15px rgba(0,0,0,0.17);">充值</span>
+            </view>
+	          <view style="width: 33.333%;" bindtap='goWallet'>
+               <view style='background:600;border-radius:200px;position:absolute;text-align:center;left:0;right:0;margin:auto;width:90px;bottom:-5px;padding:15px 0px;background:#fff;box-shadow:0px 0px 15px rgba(0,0,0,0.17);'>
+                <image style="width:25px;height:25px;" mode="444" src="./wallet.png" class="" ></image>
+                <view style='font-weight:600;'>钱包</view>
+              </view>
+            </view>
+	          <view bindtap="goAllBuys" style="width: 33%;"><span style="background: #fff;padding: 10px 30px;border-radius: 20px;color:#000000;font-weight:600;box-shadow:0px 0px 15px rgba(0,0,0,0.17);">购买</span>
+            </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view> -->

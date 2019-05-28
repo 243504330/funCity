@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view style='margin-left:5%;margin-right:5%;'>
+        <view bindtap='setPwd' style='display:flex;line-height:3.8;border-bottom:1px solid #f6f6f6;'>
+          <view style='width:50%;font-size:34rpx;color:#333333;'>
+            交易密码设置
+          </view>
+          <view style='width:50%;text-align:right;'>
+             <image style="width:12rpx;height:20rpx;"
+            mode="444"
+            src="/img/yjt.png"
+          ></image>
+          </view>
+        </view>
+        <view bindtap='out' class="btn">
+          退出登录
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

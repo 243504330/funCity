@@ -1,0 +1,39 @@
+@import "/css/lib.wxss";
+.use{
+  position:absolute;
+  right:30rpx;
+  padding:10rpx 30rpx;
+  background:#9FE363;
+  border-radius:100rpx;
+  font-size:24rpx;
+  color:#ffffff;
+  bottom:20rpx;
+}
+.btn{
+  text-align:center;
+  margin-top:120rpx;
+  background:#9fe363;
+  color:#ffffff;
+  font-size:38rpx;
+  line-height:94rpx;
+  border-radius:8rpx;
+  box-shadow:0 5px 10px 0 rgba(159,227,99,0.30);
+}
+.cha{
+  width:28rpx;
+  height:28rpx;
+  position:absolute;
+  right:30rpx;
+  top:80rpx;
+}
+.xiz{
+  width: 16.6666%;
+  margin-right:26rpx;
+}
+.box{
+  text-align:center;
+  border-bottom:1px solid #e5e5e5;
+}
+.wz{
+  color:#888888;
+}

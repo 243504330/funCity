@@ -1,0 +1,61 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view style='margin-left:5%;margin-right:5%;'>
+        <view style='display:flex;line-height:3.8;border-bottom:1px solid #f6f6f6;'>
+          <view style='width:30%;font-size:34rpx;color:#333333;'>
+            头像
+          </view>
+          <view style='width:60%;position:relative;' bindtap='chooseImage'>
+            <image wx:if="{{imageSrc != ''}}" class="pic" mode="aspectFill"src="{{imageSrc}}" ></image>
+            <image wx:else class="pic" mode="aspectFill" src="{{pub_url}}{{photo}}"></image>
+          </view> 
+          <view style='width:10%;text-align:right;'>
+             <image style="width:12rpx;height:20rpx;"
+            mode="444"
+            src="/img/yjt.png"
+          ></image>
+          </view>
+        </view>
+        <view bindtap='changeNickname' style='display:flex;line-height:3.8;border-bottom:1px solid #f6f6f6;'>
+          <view style='width:30%;font-size:34rpx;color:#333333;'>
+            昵称
+          </view>
+          <view style='width:60%;text-align:right;color:#888888;'>
+              {{nickname}}
+          </view> 
+          <view style='width:10%;text-align:right;'>
+             <image style="width:12rpx;height:20rpx;"
+            mode="444"
+            src="/img/yjt.png"
+          ></image>
+          </view>
+        </view>
+        <view style='display:flex;line-height:3.8;border-bottom:1px solid #f6f6f6;'>
+          <view style='width:30%;font-size:34rpx;color:#333333;'>
+            账号信息
+          </view>
+          <view style='width:70%;text-align:right;color:#888888;'>
+            {{phone}}
+          </view> 
+
+        </view>
+        <view bindtap="sexChange" style='display:flex;line-height:3.8;border-bottom:1px solid #f6f6f6;'>
+          <view style='width:30%;font-size:34rpx;color:#33333;'>
+            性别
+          </view>
+          <view style='width:60%;text-align:right;color:#888888;'>
+            <span wx:if="{{sex == 'G'}}">女</span>
+            <span wx:else>男</span>
+          </view> 
+          <view style='width:10%;text-align:right;'>
+             <image style="width:12rpx;height:20rpx;"
+            mode="444"
+            src="/img/yjt.png"
+          ></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

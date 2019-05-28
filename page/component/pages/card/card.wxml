@@ -1,0 +1,17 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view style='padding-bottom:40rpx;'>
+        <view style="margin-left:5%;margin-right:5%;">
+            <view wx:for="{{list}}"  wx:for-item="item" data-act="{{item.isActivation}}" id="{{item.id}}"  bindtap="goCardDetail">
+                <view class="card {{item.cardClass}}">
+                  <view>{{item.cardName}}</view>
+                  <view class="card-sm">有效期至{{item.dueDate}}</view>
+                  <image mode="aspectFill" class='ewm' src="/img/ewm.png"></image>
+                </view>
+            </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

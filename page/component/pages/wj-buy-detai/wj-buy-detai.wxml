@@ -1,0 +1,202 @@
+<view class="modal-bg" style='display:{{modal_flag}};'>
+  <view class="p-modal-box">
+    <view class="p-modal-title">
+      温馨提示
+    </view>
+    <view class="p-modal-content">
+      {{modal_message}}
+    </view>
+    <view class='p-modal-foot'>
+      <view bindtap='modalCancel' class="p-modal-cancel">
+        <span>{{modal_cancel}}</span>
+      </view>
+      <view bindtap='modalConfirm' class="p-modal-confirm">
+        <span>{{modal_confirm}}</span>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="container">
+  <form bindsubmit="formSubmit" report-submit bindreset="formReset">
+  <view class="page-body">
+    <view wx:if="{{jiesao == 'show'}}" class="mm-box">
+      <view class='dcc' style='margin-top:200rpx;height:100%;'>
+        <image bindtap='jsCha' src="/img/cha.png" class="cha" style='width:24rpx;height:24rpx;'></image>
+        <view class="jyPwd" style='text-align:center;font-size:44rpx;color:#333333;padding-top:80rpx;'>租金规则</view>
+        <view style='font-size:32rpx;color:#333333;text-align:left;padding:40rpx;'>
+          <view>1.租赁玩具需优先缴纳该玩具售价金额作为押金；</view>
+          <view class='lne'>2.玩具从起租日起开始计费，每天从押金中扣除固定费用，无需另外缴费；</view>
+          <view class='lne'>3.归还玩具后，退还剩余押金；</view>
+          <view class='lne'>4.如押金金额达到0时，则玩具无需归还，视为购买处理；</view>
+          <view class='lne'>5.如玩具发生损坏的情况，门店有权拒收玩具，视为顾客购买；</view>
+          <view class='lne'>6.如玩具丢失，视为购买处理，押金不予退换。</view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{isShow =='show'}}" class="mm-box">
+      <view class='dcc' style='bottom:{{keyHeight}}px;'>
+        <image bindtap='cha' src="/img/cha.png" class="cha"></image>
+        <view class="jyPwd" style=''>请输入交易密码</view>
+        <view class='yuexf'>使用余额消费</view>
+        <view class='mm-total'>￥{{totalAmount}}</view>
+        <view class='mm-yxs'>已享受{{info.discountStr}}折优惠</view>
+        <view bindtap='subPwd' class='mm-sub'>
+          <view class="mm-xbox" wx:if="{{pwdleng >= 0}}" style='border:1px solid #8530ff;'>
+            <view class='xing' wx:if="{{pwdleng > 0}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+          <view class="mm-xbox" wx:if="{{pwdleng >= 1}}" style='border:1px solid #8530ff;'>
+            <view class='xing' wx:if="{{pwdleng > 1}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+          <view class="mm-xbox" wx:if="{{pwdleng >= 2}}" style='border:1px solid #8530ff;'>
+            <view class='xing' wx:if="{{pwdleng > 2}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+          <view class="mm-xbox" wx:if="{{pwdleng >= 3}}" style='border:1px solid #8530ff;'>
+            <view class='xing' wx:if="{{pwdleng > 3}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+          <view class="mm-xbox" wx:if="{{pwdleng >= 4}}" style='border:1px solid #8530ff;'>
+            <view class='xing' wx:if="{{pwdleng > 4}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+          <view class="mm-xbox" wx:if="{{pwdleng >= 5}}" style='border:1px solid #8530ff;'>
+            <view class='xing' wx:if="{{pwdleng == 6}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+
+        </view>
+
+      </view>
+    </view>
+    <view class="page-section">
+      <view class='xmhz' style='margin-top:40rpx;'>
+        <view style='width:30%;'>
+            <image class="ztp" src="{{pub_url}}{{item.imgPath}}"></image>
+        </view>
+        <view style='width:70%;position:relative;padding-left:30rpx;'>
+          <view class='dxt'>
+            <view class="sdz">{{item.name}}</view>
+            <view class='sxz'>{{item.toySpec}}</view>
+          </view>
+          <view wx:if="{{type == 'buy'}}" style='position:absolute;bottom:0;'>
+            <view class='xhui'>￥{{item.priceBean.price}}<span style="padding-left:20rpx;padding-right:14rpx;">|</span>余额￥{{item.priceBean.goldPrice}}</view>
+            <view class='xhong' style='font-weight:600;'>
+            ￥{{item.priceBean.vipPrice}}<span style="padding-left:20rpx;padding-right:14rpx;">|</span>余额￥{{item.priceBean.vipGoldPrice}}
+            <image class='vipImg' src="/img/vip.png"></image>
+            </view>
+          </view>
+          <view wx:else style='position:absolute;bottom:0;'>
+            <view class='xhui'>￥{{item.priceBean.price}}/天<span style="padding-left:20rpx;padding-right:14rpx;">|</span>余额￥{{item.priceBean.goldPrice}}/天</view>
+            <view class='xhong' style='font-weight:600;'>
+            ￥{{item.priceBean.vipPrice}}/天<span style="padding-left:20rpx;padding-right:14rpx;">|</span>余额￥{{item.priceBean.vipGoldPrice}}/天
+            <image class='vipImg' src="/img/vip.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="b-box">
+        <view style='width:30%;'>
+          <image src="{{pub_url}}{{item.imgPath}}" class="slide-image" style='width:180rpx;height:180rpx;' />
+        </view>
+        <view style='width:70%;position:relative;'>
+          <view style='color:#333333;font-weight:600;'>{{item.name}}</view>
+          <view style='color:#888888;font-size:24rpx;'>{{item.toySpec}}</view>
+          <view style='font-size:28rpx;'>
+            <view style='color:#666666;padding-top:20rpx;'> ￥{{item.priceBean.price}}<span style="padding-left:20rpx;padding-right:20rpx;">|</span>余额￥{{item.priceBean.goldPrice}}</view>
+            <view style='color:#feae4e;position:relative;'>￥{{item.priceBean.vipPrice}}<span style="padding-left:20rpx;padding-right:20rpx;">|</span>余额￥{{item.priceBean.vipGoldPrice}}<image src="/img/vip.png" class="vip" /></view>
+          </view>
+        </view>
+      </view> -->
+      <view style='margin-left:5%;margin-right:5%;'>
+        <view style='display:flex;padding-bottom:33rpx;border-bottom:1px solid #f6f6f6;'>
+          <view style='width:70%;font-size:28rpx;color:#333333;'>
+            数量
+          </view>
+          <view style='width:30%;text-align:center;position:relative;display:flex;'>
+            <view bindtap='jian' style='width:30%;'>
+              <image src="/img/jian.png" class="slide-image" style='width:50rpx;height:50rpx;' />
+            </view>
+            <view style='width:40%;'>
+               <span>{{count}}</span>
+            </view>
+            <view bindtap='jia' style='width:30%;'>
+              <image src="/img/jia.png" class="slide-image" style='width:50rpx;height:50rpx;' />
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{type == 'rent'}}" style='display:flex;padding-bottom:33rpx;padding-top:40rpx;border-bottom:1px solid #f6f6f6;margin-bottom:40rpx;'>
+          <view style='width:50%;font-size:28rpx;color:#333333;'>
+            押金
+          </view>
+          <view style='width:50%;color:#ffae4e;text-align:right;'>
+              <view class="the-ye">￥{{((item.priceBean.deposit * 10) * count)/10}}<span style="padding-left:16rpx;padding-right:16rpx;">|</span>余额￥{{((item.priceBean.goldDeposit * 10) * count)/10}}</view>
+          </view>
+        </view>
+        <view wx:if="{{type == 'rent'}}" style='display:flex;padding-bottom:33rpx;border-bottom:1px solid #f6f6f6;margin-bottom:40rpx;'>
+          <view style='width:50%;font-size:28rpx;color:#333333;'>
+            日租金
+            <image bindtap='wenhao' src="/img/wenhao.png" style='width:32rpx;height:32rpx;position:absolute;padding-top:6rpx;padding-left:20rpx;'></image>
+          </view>
+          <view style='width:50%;color:#ffae4e;text-align:right;'>
+              <view wx:if="{{vip != 'normal'}}" class='xhong' style='font-weight:600;'>
+                ￥{{((item.priceBean.vipPrice) * 100 * count) /100}}/天<span style="padding-left:20rpx;padding-right:14rpx;">|</span>余额￥{{((item.priceBean.vipGoldPrice) * 100 * count) / 100}}/天
+              </view>
+              <view wx:else class='xhong' style='font-weight:600;'>
+                ￥{{((item.priceBean.price * 100) * count)/100}}/天<span style="padding-left:20rpx;padding-right:14rpx;">|</span>余额￥{{((item.priceBean.goldPrice * 100) * count)/100}}/天
+              </view>
+          </view>
+        </view>
+        <view class='payway'>请选择支付方式</view>
+          <button form-type="submit" name="type" data-type="yue" class="catchBtn">
+            <view  style='display:flex;padding-top:40rpx;padding-bottom:40rpx;border-bottom:1px solid #f6f6f6;'>
+              <view style='width:10%;'>
+                <image src="/img/jd.png" class="slide-image" style='width:48rpx;height:48rpx;' />
+              </view>
+              <view style='width:60%;'>
+                <view>
+                  <span style="font-size:34rpx;color:#333333;">余额支付</span>
+                  <span style="font-size:28rpx;color:#aaaaaa;">（余额：{{(info.sumgold * 10) /10}}）</span>
+                </view>
+                <view style='padding-top:10rpx;'>
+                  <span class="zkou">余额消费享{{info.chargeDiscount}}折起</span>
+                </view>
+              </view>
+              <view style='width:30%;text-align:right;position:relative;'>
+                <span class="the-ye">￥{{(totalAmount * 10) / 10}}</span> 
+                <image mod="444" src="/img/yjt.png" style="width:12rpx;height:20rpx;padding-left:20rpx;"></image>
+              </view>
+            </view>
+          </button>
+        <button form-type="submit"  data-type="chongzhi" class="catchBtn">
+          <view  style='display:flex;padding-top:40rpx;padding-bottom:40rpx;border-bottom:1px solid #f6f6f6;'>
+            <view style='width:10%;'>
+              <image src="/img/wx.png" class="slide-image" style='width:48rpx;height:48rpx;' />
+            </view>
+            <view style='width:60%;'>
+              <view>
+                <span style="font-size:34rpx;color:#333333;">微信支付</span>
+              </view>
+            </view>
+            <view style='width:30%;text-align:right;position:relative;'>
+              <span class="the-wx">￥{{(cashTotal * 10) / 10}}</span> 
+              <image mod="444" src="/img/yjt.png" style="width:12rpx;height:20rpx;padding-left:20rpx;"></image>
+            </view>
+          </view>
+        </button>
+        <view style='font-size:24rpx;color:#aaaaaa;padding-top:40rpx;padding-botom:40rpx;'>
+           {{info.msg}}
+        </view>
+        <input bindfocus="keybo" class='payInput' bindinput="userpwd" value="{{userpwd}}" type="number" maxlength="8" focus="{{focus}}"  />
+      </view>
+    </view>
+  </view>
+  </form>
+</view>

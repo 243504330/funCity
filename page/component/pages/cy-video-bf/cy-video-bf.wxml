@@ -1,0 +1,180 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <!-- <cover-view class="toup">
+        <cover-view style='position:relative;width:100%;height:100%;'>
+          <cover-image class="touimg" src="/img/cart.png"></cover-image>
+        </cover-view>
+      </cover-view>
+      <cover-view class="yuan">{{cartNum}}</cover-view> -->
+          
+        
+      <video id="myVideo"  style='height:{{scroll_height}}px;width:100%;position:absolute;' controls="{{false}}" loop autoplay src="{{pub_url}}{{list.videoPath}}"></video>
+      <!-- <cover-view style="top:30rpx;position:absolute;text-align:center;width:100%;color:#ffffff;font-size:36rpx;padding-top:30rpx;">{{list.name}}</cover-view>
+      <cover-view bindtap='back' style='position:absolute;width:100rpx;height:100rpx;top:30rpx;z-index:999;'></cover-view>
+      <cover-image src="/img/back.png" style='position:absolute;width:36rpx;height:36rpx;top:66rpx;left:15rpx;'></cover-image>
+            <cover-view style='position:fixed;bottom:0;color:#ffffff;width:100%;text-align:center;height:100rpx;'>
+        <cover-view style='display:flex;margin-left:5%;margin-right:5%;height:80rpx;'>
+          <cover-view class='wala' bindtap='isLike'>
+            
+              <cover-image class="bala" src="./{{like}}.png"></cover-image>
+          
+            <cover-view class="lolo">
+              {{likeNum}}
+            </cover-view>
+          </cover-view>
+          <cover-view id="cart" bindtap="buyAndZu" class='zcl' style='background:#9FE363;border-color:#9FE363;'> <cover-view>加入购物车</cover-view></cover-view>
+          <cover-view id="buy" bindtap="buyAndZu" class='zcl' style='background:#ffae4e;border-color:#ffae4e;'> <cover-view>下单￥{{list.salePrice}}</cover-view></cover-view>
+        </cover-view>
+      </cover-view>
+            <cover-view class="d-box" style='display:{{dBox}};'>
+        <cover-view style='position:fixed;bottom:0;background:#ffffff;width:100%;text-align:center;'>
+         <cover-view>
+
+         </cover-view>
+          <cover-view style='display:flex;padding-left:5%;height:200rpx;'>
+            <cover-view style='width:30%;position:relative;'>
+              <cover-image class="ximg" src="{{pub_url}}{{ggList.imgPath}}"></cover-image>
+            </cover-view>
+            <cover-view wx:if="{{type == 'rent'}}" class="rhan">
+              <cover-view>￥{{ggList.priceBean.price}}/天 | {{ggList.priceBean.goldPrice}}金豆/天</cover-view>
+              <cover-view style='color:#ffae4e'>￥ {{ggList.priceBean.vipPrice}}/天 | {{ggList.priceBean.vipGoldPrice}}金豆/天 <cover-image style='width:44rpx;height:24rpx;' src="./vip.png"></cover-image></cover-view>
+              <cover-image bindtap='close' class="cha" src="./cha.png"></cover-image>
+            </cover-view>
+            <cover-view wx:else class="rhan">
+              <cover-view>￥{{ggList.priceBean.price}} | {{ggList.priceBean.goldPrice}}金豆</cover-view>
+              <cover-view style='color:#ffae4e'>￥ {{ggList.priceBean.vipPrice}} | {{ggList.priceBean.vipGoldPrice}}金豆 <cover-image style='width:52rpx;height:26rpx;margin-top:4rpx;margin-left:10rpx;float:right;' src="./vip.png"></cover-image></cover-view>
+              
+            </cover-view>
+            <cover-image bindtap='close' class="cha" src="./cha.png"></cover-image>
+          </cover-view>
+          <cover-view class='guige'>
+            <cover-view>规格</cover-view>
+            <cover-view style='padding-top:40rpx;padding-bottom:40rpx;'>
+              <cover-view wx:for="{{allList}}" wx:for-index="idx" bindtap="xuanGG" wx:for-item="item" id="{{item.goodsSpec}}" class="{{item.goodsSpec == ggClass ? 'btn-act' : 'btn-def'}}">
+              <cover-view> {{item.goodsSpec}} </cover-view>
+              </cover-view>
+            </cover-view>
+          </cover-view>
+          <cover-view class="line">
+
+          </cover-view>
+          <cover-view class="gmsl">
+            <cover-view style='width:30%;line-height:1.8;'>购买数量</cover-view>
+            <cover-view style='width:70%;display:flex;'>
+              <cover-view style='width:70%;text-align:right;'>
+                <cover-image bindtap='jian' style='width:50rpx;height:50rpx;float:right;' src="./jian.png"></cover-image>
+              </cover-view>
+              <cover-view style='width:15%;text-align:center;line-height:1.8;'>
+               {{num}}
+              </cover-view>
+              <cover-view style='width:15%;'>
+                <cover-image bindtap="jia" src="./jia.png" style='width:50rpx;height:50rpx;'></cover-image>
+              </cover-view>
+            </cover-view>
+          </cover-view>
+          <cover-view bindtap="sub" class="sub">
+            {{subBtn}}
+          </cover-view>
+        </cover-view>
+      </cover-view> -->
+      <cover-view class="d-box" style='display:{{dBox}};'>
+         <cover-view>
+
+         </cover-view>
+        <cover-view style='position:fixed;bottom:0;background:rgba(0,0,0,0);width:100%;text-align:center;z-index:999;'>
+         <cover-view style='border-radius:20rpx;height:200rpx;width:100%;position:absolute;margin-top:25px;background:#ffffff;'>
+
+         </cover-view>
+          <cover-view style='display:flex;padding-left:5%;height:200rpx;'>
+                   <cover-view>
+
+         </cover-view>
+            <cover-view style='width:30%;position:relative;'>
+              <cover-image class="ximg" src="{{pub_url}}{{ggList.imgPath}}"></cover-image>
+            </cover-view>
+            <cover-view wx:if="{{type == 'rent'}}" class="rhan" style='width:70%;'>
+              <cover-view style='color:#666666;padding-left:20rpx;'>￥{{ggList.priceBean.price}}/天 | {{ggList.priceBean.goldPrice}}余额/天</cover-view>
+              <cover-view style='color:#ff0050;float:left;padding-top:10rpx;padding-left:20rpx;'>￥{{ggList.priceBean.vipPrice}}/天 | {{ggList.priceBean.vipGoldPrice}}余额/天 <cover-image style='width:44rpx;height:24rpx;float:right;padding-top:10rpx;padding-left:10rpx;' src="/img/vip.png"></cover-image></cover-view>
+            </cover-view>
+            <cover-view wx:else class="rhan" style='width:70%;'>
+              <cover-view style='padding-left:20rpx;'>￥{{ggList.priceBean.price}} | 余额￥{{ggList.priceBean.goldPrice}}</cover-view>
+              <cover-view style='color:#ff0050;float:left;padding-top:10rpx;padding-left:20rpx;'>￥{{ggList.priceBean.vipPrice}} | 余额￥{{ggList.priceBean.vipGoldPrice}} <cover-image style='width:44rpx;height:24rpx;float:right;padding-top:10rpx;padding-left:10rpx;' src="/img/vip.png"></cover-image></cover-view>
+              
+            </cover-view>
+            <cover-view bindtap='close'  style='width:100rpx;height:100rpx;padding-top:40rpx;'></cover-view>
+            <cover-image  bindtap='close' class="cha" src="/img/cha.png"></cover-image>
+          </cover-view>
+          <cover-view class='guige'>
+            <cover-view>规格</cover-view>
+            <cover-view style='padding-top:40rpx;padding-bottom:40rpx;'>
+              <cover-view wx:for="{{allList}}" wx:for-index="idx" bindtap="xuanGG" wx:for-item="item" id="{{item.goodsSpec}}" class="{{item.goodsSpec == ggClass ? 'btn-act' : 'btn-def'}}">
+              <cover-view> {{item.goodsSpec}} </cover-view>
+              </cover-view>
+            </cover-view>
+          </cover-view>
+          <cover-view style='height:1px solid #000000;width:100%;'></cover-view>
+          <cover-view class="gmsl" style='position:relative;'>
+            <cover-view class="mm-line" style='top:0;'></cover-view>
+            <cover-view style='width:30%;line-height:1.8;'>购买数量</cover-view>
+            <cover-view style='width:70%;display:flex;'>
+              <cover-view style='width:70%;text-align:right;'>
+                <cover-image bindtap='jian' style='width:50rpx;height:50rpx;float:right;' src="/img/jian.png"></cover-image>
+              </cover-view>
+              <cover-view style='width:15%;text-align:center;line-height:1.8;'>
+               {{num}}
+              </cover-view>
+              <cover-view style='width:15%;'>
+                <cover-image bindtap="jia" src="/img/jia.png" style='width:50rpx;height:50rpx;'></cover-image>
+              </cover-view>
+            </cover-view>
+            
+          </cover-view>
+          <cover-view bindtap="sub" class="sub">
+            <cover-view class="mm-line" style='top:0;margin-left:5%;'></cover-view>
+            <cover-image bindtap="sub" class="mm-a-img" src="/img/z_btn.png"></cover-image>
+            <cover-view class="mm-a-font">
+             {{subBtn}}
+            </cover-view>
+          </cover-view>
+        </cover-view>
+      </cover-view>      
+       <cover-view style="height:{{statusBarHeight * 2 + 40}}px;position:relative;text-align:center;width:100%;">
+          <cover-view bindtap='back' style='position:absolute;width:60%;z-index:999;left:20%;color:#ffffff;font-weight:600;bottom:40%;'>{{list.name}} </cover-view>
+           <cover-view bindtap='back' style='position:absolute;width:100rpx;height:100rpx;top:{{statusBarHeight * 2}}rpx;z-index:999;'></cover-view>
+        <cover-image src="/img/back.png" style='position:absolute;width:36rpx;height:36rpx;top:0;left:15rpx;bottom:0;margin:auto;padding-top:6rpx;'></cover-image>
+       </cover-view>
+       <cover-view style='display:{{dMenu}};position:fixed;text-align:center;color:#ffffff;width:180rpx;bottom:170rpx;right:0;'>
+         <cover-view wx:if="{{list.list != ''}}" id="rent" bindtap="goXq" style='position:relative;padding-top:40rpx;'>
+            <cover-image mode="widthFix" style='width:52rpx;position:absolute:left:0;right:0;margin:auto;top:0;' src="/img/xq.png"></cover-image>
+              <cover-view style='font-size:24rpx;padding-top:10rpx;'>详情</cover-view> 
+            </cover-view>
+          <cover-view bindtap='isLike' style='position:relative;padding-top:55rpx;'>
+            <cover-image style='width:52rpx;height:46rpx;position:absolute:left:0;right:0;margin:auto;top:0;' src="/img/{{like}}.png"></cover-image>
+           <cover-view style='font-size:28rpx;padding-top:10rpx;'>{{likeNum}}</cover-view> 
+          </cover-view>
+          <cover-view id="cart" bindtap="goCart" style='position:relative;padding-top:40rpx;'>
+            <cover-view wx:if="{{cartNum != 0}}" class="yuan">{{cartNum}}</cover-view>
+            <cover-image mode="widthFix" style='width:52rpx;position:absolute:left:0;right:0;margin:auto;top:0;' src="/img/shopcart.png"></cover-image>
+           <cover-view style='font-size:24rpx;padding-top:10rpx;'>购物车</cover-view> 
+          </cover-view>
+       </cover-view>
+        <cover-view style='display:{{dMenu}};position:absolute;bottom:0;color:#ffffff;width:100%;text-align:center;z-index:99;'>
+          <cover-view  class="buyBox" style='display:flex;'>
+            <cover-view id="cart" bindtap="buyAndZu" style='width:50%;position:relative;'>
+              <cover-image class="buyBtnImg" style='width:280rpx;height:80rpx;' src="/img/z_btn.png"></cover-image>
+              <cover-view class="buyFont">
+               加入购物车
+              </cover-view>
+            </cover-view>
+            <cover-view id="buy" bindtap="buyAndZu" style='width:50%;position:relative;'>
+              <cover-image class="buyBtnImg" style='width:280rpx;height:80rpx;' src="/img/h_btn.png"></cover-image>
+              <cover-view class="buyFont">
+                下单￥{{list.salePrice}}
+              </cover-view>
+            </cover-view>
+          </cover-view>
+        </cover-view>
+    </view>
+  </view>
+</view>

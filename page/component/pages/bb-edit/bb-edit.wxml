@@ -1,0 +1,96 @@
+<view>
+  <image  class="bg" mode="widthFix" src="/img/creat_bg.png" ></image>
+  <view wx:if="{{disabled == false}}" bindtap="del" style='position:absolute;top:40rpx;right:5%;color:#ffffff;'>删除</view>
+  <view bindtap='goCamera' class="tec">
+    <view wx:if="{{disabled == false}}">
+      <image wx:if="{{imgSrc != '' }}" style='width:25px;height:25px;position:absolute;right:0;bottom:0;' src="/img/cam2.png"></image>
+    </view>
+    <view wx:if="{{imgSrc != ''}}" style='width:100%;height:100%;'>
+      <image style='width:100%;height:100%;' src="{{imgSrc}}"></image>
+    </view>
+    <view wx:else class="jds">
+      <view>
+        <image style='width:74rpx;height:60rpx;' src="/img/cam1.png"></image>
+      </view>
+      <view class='tpwz'>拍照</view>
+    </view>
+  </view>
+  <view style='padding-top:140rpx;'>
+    <view style='display:flex;height:100rpx;'>
+      <view id="B" class="fsa">
+        <view wx:if="{{sex == 'G'}}" class="whc">
+          <image class="tpla" src="/img/boy.png"></image>
+          <span class="bsay">男宝宝</span>
+        </view>
+        <view wx:else class="whc-act">
+          <image class="tpla" src="/img/boy_bai.png"></image>
+          <span class="bsay" style="color:#ffffff;">男宝宝</span>
+        </view>
+      </view>
+      <view id="G"  class="fsa">
+        <view wx:if="{{sex == 'G'}}" class="whc-girl-act">
+          <image class="tpla" src="/img/girl_bai.png"></image>
+          <span class="bsay" style="color:#ffffff;">女宝宝</span>
+        </view>
+        <view wx:else class="whc-girl">
+          <image class="tpla" src="/img/girl.png"></image>
+          <span class="bsay" >女宝宝</span>
+        </view>
+      </view>
+    </view>
+    <view style='margin-left:5%;margin-right:5%;'>
+    
+    </view>
+    <view wx:if="{{disabled == false}}" class='sds'>
+      <view style='width:30%;font-weight:600;'>
+        乳名/姓名
+      </view>
+      <view style='width:65%;text-align:right;'>
+       <input disabled="{{disabled}}" bindinput="name" maxlength="8" style='color:#aaaaaa;width:95%;' placeholder='请输入名字' value="{{nickname}}"></input>
+      </view>
+      <view bindtap='clearName' wx:if="{{nickname != ''}}" style='width:5%;position:relative'>
+        <image mode="widthFix" style='width:30rpx;position:absolute;top:0;bottom:0;margin:auto;right:0;' src="/img/xiaochu.png"></image>
+      </view>
+    </view>
+    <view wx:else class='sds'>
+      <view style='width:30%;font-weight:600;'>
+        乳名/姓名
+      </view>
+      <view style='width:70%;text-align:right;'>
+       <input disabled="{{disabled}}" bindinput="name" maxlength="8" style='color:#aaaaaa;' placeholder='请输入名字' value="{{nickname}}"></input>
+      </view>
+    </view>
+    <picker disabled mode="date" value="{{date}}" start="1970-09-01" end="2200-09-01" >
+      <view class='sds'>
+        <view style='width:30%;color:#333333;'>
+          生日
+        </view>
+        <view style='width:70%;text-align:right;padding-right:20rpx;color:#aaaaaa;'>
+          {{date}}
+        </view>
+      </view>
+    </picker>
+    <picker disabled  value="{{index}}" range="{{array}}">
+      <view class='sds'>
+      
+        <view style='width:30%;color:#333333;'>
+          关系
+        </view>
+        <view style='width:70%;text-align:right;padding-right:20rpx;color:#aaaaaa;'>
+          {{xhz}}
+        </view>
+      </view>
+    </picker>
+  </view>
+  <view wx:if="{{disabled == false}}" class="about">
+  请上传宝宝的清晰正面照，要求五官清晰，辨识度高，与卡或票绑定时不允许修改档案。
+  </view>
+  <view wx:if="{{disabled == false}}" style='text-align:center;padding-bottom:80rpx;'>
+    <view style='position:relative;margin-bottom:60rpx;margin-top:20rpx;'>
+      <image wx:if="{{notice != ''}}" style='width:300rpx;position:absolute;left:0;right:0;margin:auto;z-index:-1;' mode="widthFix" src="/img/song_bg.png"></image>
+      <view wx:if="{{notice != ''}}" style='font-size:28rpx;color:#ffffff;padding-top:6rpx;'>{{notice}}</view>
+    </view>
+    <span bindtap="sub" class='{{isSub}}'>保存档案</span>
+  </view>
+  
+</view>

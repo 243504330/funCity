@@ -1,0 +1,54 @@
+button::after {
+  border: none
+}
+.plain {
+  border: none;
+  border-color: transparent;
+}
+.wx-btn{
+  margin-left:5%;
+  margin-right:5%;
+  border-radius:50px;
+  background:#02C160;
+  border:100rpx;
+  color:#ffffff;
+  margin-top:30rpx;
+}
+.sq-btn{
+  margin-left:5%;
+  margin-right:5%;
+  border-radius:50px;
+  background:#ffffff;
+  border:100rpx;
+  color:#666666;
+  margin-top:30rpx;
+  border:1px solid #e5e5e5;
+}
+.def-btn{
+  margin-top:69px;
+  text-align:center;
+  background:#e5e5e5;
+  border-radius:8rpx;
+  padding-top:20rpx;
+  padding-bottom:20rpx;
+  color:#ffffff;
+  font-size:18px;
+
+}
+.act-btn{
+  margin-top:69px;
+  text-align:center;
+  background:#9FE363;
+  border-radius:8rpx;
+  padding-top:20rpx;
+  padding-bottom:20rpx;
+  color:#ffffff;
+  font-size:18px;
+  box-shadow:0 5px 10px 0 rgba(159,227,99,0.30);
+}
+.def-code{
+  color:#000000;
+}
+.act-code{
+  color: #cccccc;
+}

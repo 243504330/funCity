@@ -1,0 +1,57 @@
+page{
+  background: #f9f9f9;
+}
+button{
+  background:rgba(0, 0, 0, 0);
+  padding:0;
+  margin:0;
+  font-size:24rpx;
+  color:rgba(255, 255, 255, 0.8);
+  border:none;
+}
+button::after {
+  border: none;
+}
+.button-hover{
+  color:rgba(255, 255, 255, 0.8);
+  background-color:rgba(0, 0, 0, 0);
+  border:none;
+}
+.fz4{
+  font-size: 40rpx;
+}
+.f888{
+  color: #888888;
+  font-size: 24rpx;
+}
+.walo{
+  display:flex;
+  padding-top:26rpx;
+  padding-bottom:26rpx;
+  border-top:1px solid #e5e5e5;
+  margin-top:10rpx;
+  border-bottom:1px solid #e5e5e5;
+}
+.xiaoz{
+  font-size:22rpx;
+  background:#ff0050;
+  color:#ffffff;
+  padding:5rpx 10rpx;
+  border-radius:4rpx;
+}
+.line{
+  width:1px;height:38px;background-color:#f6f6f6;margin-top:5px;
+}
+.vip{
+  width:56rpx;
+  height:28rpx;
+  position:absolute;
+  top:0;
+  bottom:0;
+  margin:auto;
+  }
+.jf{
+  font-size:24rpx;
+  color:#ffffff;
+  padding-left:80rpx;
+}

@@ -1,0 +1,72 @@
+@import "/css/lib.wxss";
+.menu{
+  display:flex;
+  background:#f9f9f9;
+  line-height:44px;
+  text-align:center;
+  font-size: 28rpx;
+}
+.def{
+  width:33.33%;
+}
+.act{
+  width:33.33%;
+  background:#ffffff;
+  font-weight:600;
+}
+.l-act{
+  border-bottom:2px solid #9FE363;
+  padding-bottom:4px;
+}
+.vip{
+  width:28px;
+  height:14px;
+  top:0;
+  bottom:0;
+  margin:auto;
+  position:absolute;
+  padding-left:10rpx;
+}
+.yjt{
+  position:absolute;
+  right:0;
+  width:12rpx;
+  height:20rpx;
+  top:0;
+}
+.b-box{
+  display:flex;
+  margin:40rpx 30rpx;
+  border-bottom:1px solid #f6f6f6;
+  padding-bottom:40rpx;
+}
+.payway{
+  font-size:28rpx;
+  color:#888888;
+  padding-bottom:40rpx;
+  border-bottom:1px solid #f6f6f6;
+}
+.zkou{
+  background:#ff0050;
+  border-radius:8rpx;
+  color:#ffffff;
+  font-size:22rpx;
+  padding:6rpx 20rpx;
+}
+.cha{
+  position:absolute;
+  width:40rpx;
+  height:40rpx;
+  right:0;
+  top:0;
+  padding:40rpx;
+}
+
+.tcbtn{
+  font-size:28rpx;
+  color:#ffffff;
+  padding:14rpx 25rpx;
+  border-radius:30rpx;
+  box-shadow:inset 4px 4px 8px 0 #CF9DFF;
+  background:linear-gradient(-135deg, #4A3AF1 0%, #D358FF 100%);
+}

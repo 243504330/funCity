@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="page-body" style='position:relative;text-align:center;'>
+    <view class="page-section">
+
+      <view style='position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;width:100%;height:80%;'>
+        <image mode='widthFix' style='width:60%;' src="/img/logo.png"></image>
+        <button wx:if="{{type == 'wx'}}" class="wx-btn" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">微信授权</button>
+        <button wx:if="{{type == 'phone'}}" class="wx-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信一键登录</button>
+        <button wx:if="{{phoneLogin == true}}" class="sq-btn" bindtap='loginPub'>手机登录</button>
+      </view>
+
+      <!-- <view style='margin-left:5%;margin-right:5%;padding-top:20rpx;'>
+        <view style='font-size:48rpx;'>登录</view>
+        <view style='padding-top:50rpx;border-bottom:1px solid #e5e5e5;padding-bottom:20rpx;'>
+          <input  bindinput="phone" value="{{phone}}" placeholder="请输入手机号码"  />
+        </view>
+        <view style='display:flex;padding-top:60rpx;border-bottom:1px solid #e5e5e5;padding-bottom:20rpx;'>
+          <view style='width:65%;'>
+            <input bindinput="code" value="{{code}}" placeholder="请输入验证码"  />
+          </view>
+          <view style='width:35%;text-align:right;' class="{{codeSty}}" bindtap='getCode'>{{codeMs}}</view>
+        </view>
+        <view bindtap='login' class="{{btn}}" style='margin-top:138rpx;'>
+            登录
+        </view> 
+        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" style='background:#9fe363;color:#ffffff;border-color:#9fe363;'>微信登录 </button>
+        <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+      </view> -->
+    </view>
+  </view>
+</view>

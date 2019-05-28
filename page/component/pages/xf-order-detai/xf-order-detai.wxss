@@ -1,0 +1,25 @@
+@import "/css/lib.wxss";
+.wcx{
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top:42rpx;
+  padding-bottom:42rpx;
+  border-bottom: 20rpx solid #f9f9f9;
+}
+.tit1{
+  color:#333;
+  padding-bottom:30rpx;
+  font-weight: 600;
+}
+.tit2{
+  color:#888888;
+  font-size:28rpx;
+  padding-top:6rpx;
+}
+.x1{
+  position:absolute;
+  right:0;
+  bottom:0;
+  color:#888888;
+  font-size:28rpx;
+}

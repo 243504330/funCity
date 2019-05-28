@@ -1,0 +1,42 @@
+@import "/css/lib.wxss";
+.menu{
+  display:flex;
+  background:#f9f9f9;
+  line-height:44px;
+  text-align:center;
+  font-size: 28rpx;
+}
+.def{
+  width:33.33%;
+}
+.act{
+  width:33.33%;
+  background:#ffffff;
+  font-weight:600;
+}
+.l-act{
+  border-bottom:2px solid #9FE363;
+  padding-bottom:4px;
+}
+.vip{
+  width:28px;
+  height:14px;
+  top:0;
+  bottom:0;
+  margin:auto;
+  position:absolute;
+  padding-left:10rpx;
+}
+.yjt{
+  position:absolute;
+  right:0;
+  width:12rpx;
+  height:20rpx;
+  top:0;
+}
+.b-box{
+  display:flex;
+  margin:40rpx 30rpx;
+  border-bottom:1px solid #e5e5e5;
+  padding-bottom:40rpx;
+}

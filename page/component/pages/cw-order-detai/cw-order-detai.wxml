@@ -1,0 +1,68 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="wcx">
+        <view class="tit1">账号信息</view>
+        <view class="tit2">昵称：<span>{{list.nickname}}</span></view>
+        <view  class="tit2">手机：<span>{{list.mobilephone}}</span></view>
+      </view>
+      <view class="wcx">
+        <view class="tit1">订单信息</view>
+        <view class="tit2" style='position:relative;overflow:inherit;' >订单编号：<span>{{list.order_no}}</span>
+           <span bindtap="copy" id="{{list.order_no}}" class="copy">复制</span>
+        </view>
+        <view class="tit2">下单时间：<span>{{list.order_time}}</span></view>
+        <view class="tit2">完成时间：<span>{{list.finish_time}}</span></view>
+        <view class="tit2">订单状态：<span>{{list.status}}</span></view>
+        <view class="tit2">支付方式：<span>{{list.cons_type_str}}</span></view>
+      </view>
+      <view class="wcx" >
+        <view class="tit1" style='border-bottom:1px solid #f6f6f6;'>
+          <span wx:if="{{list.item_type == 'ticket'}}">购票</span>
+          <span wx:if="{{list.item_type == 'game'}}">购币</span>
+          <span wx:if="{{list.item_type == 'card'}}">购卡</span>
+        </view>
+        <view style='display:flex;padding-top:30rpx;padding-bottom:30rpx;'>
+          <view style='width:25%;'>
+            <image style="width:140rpx;height:140rpx;" mode="444" src="{{pub_url}}{{list.image}}" ></image>
+          </view>
+          <view style='width:75%;position:relative;'>
+            <view style='font-size:28rpx;color:#333333;'>{{list.item_name}}</view>
+            <view class="tit2" style='padding-top:0rpx;'>
+              <span wx:if="{{list.ticketScope != ''}}">{{list.ticketScope}}</span>
+              <span wx:else>{{list.item_remark}}</span>
+            </view>
+            <view class='x1'>x{{list.buy_num}}</view>
+            <view style='position:absolute;bottom:0;left:0;padding-bottom:4rpx;font-size:28rpx;color:#888888;'>￥{{list.single_price}}</view>
+          </view>
+        </view>
+        <view style='display:flex;border-top:1px solid #f6f6f6;padding-top:30rpx;'>
+          <view style='width:50%;font-size:28rpx;color:#666666;'>实付</view>
+          <view style='width:50%;font-size:28rpx;color:#ff0050;text-align:right;font-weight:600;'>￥{{list.amount}}</view>
+        </view>
+      </view>
+      <view wx:if="{{list.largess_list.length >= 1}}" class="wcx">
+        <view class="tit1">赠送</view>
+        <view class="tit2">
+          <view wx:for="{{list.largess_list}}" wx:for-item="item" style='display:flex;border-top:1px solid #f6f6f6;padding-top:30rpx;padding-bottom:30rpx;'>
+            <view style='width:50%;'>{{item.name}}</view>
+            <view style='width:50%;text-align:right;'>x{{item.quantity}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view style='color:#f9f9f9;padding-top:20rpx;'>123</view>
+    <view style='background:#ffffff;height:98rpx;position:fixed;bottom:0;width:100%;border-top:1px solid #f6f6f6;'>
+
+      <view style='display:flex;'>
+        <view style='width:50%;'></view>
+        <view style='width:50%;position:relative;height:100%;'>
+          <view style='position:absolute;right:40rpx;top:24rpx;'>
+           <span bindtap="goTicket" style='background:linear-gradient(135deg, #D358FF 0%, #4A3AF1 100%);padding:15rpx 40rpx;font-size:28rpx;color:#ffffff;border-radius:100rpx;'>{{typeName}}</span>
+          </view>
+        </view>
+      </view>
+      
+    </view>
+  </view>
+</view>

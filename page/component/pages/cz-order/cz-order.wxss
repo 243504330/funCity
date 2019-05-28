@@ -1,0 +1,39 @@
+.box{
+  margin-left:5%;
+  margin-right:5%;
+  padding:40rpx;
+  box-shadow:0 1px 3px 0 rgba(170,170,170,0.30);
+  margin-top:20rpx;
+  background: #ffffff;
+}
+.tl{
+  width:50%;
+  font-size:36rpx;
+  color:#333333;
+  font-weight:600;
+}
+.tr{
+  width:50%;
+  text-align:right;
+  color:#aaaaaa;
+  font-size:28rpx;
+}
+.sl{
+  font-size:64rpx;
+  color:#333333;
+}
+.sr{
+  color:#333333;
+  padding-left: 10rpx;
+}
+.bl{
+  width:70%;
+  font-size:28rpx;
+  color:#888888;
+}
+.br{
+  width:30%;
+  text-align:right;
+  font-size:28rpx;
+  color:#333333;
+}

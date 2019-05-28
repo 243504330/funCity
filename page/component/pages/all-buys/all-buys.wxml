@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <swiper>
+        <block wx:for="{{banners}}" wx:for-index="idx" wx:for-item="item">
+          <swiper-item>
+            <image src="{{pub_url}}{{item.picpath}}" class="slide-image" style='width:100%;height:300rpx;' />
+          </swiper-item>
+        </block>
+      </swiper>
+      <view  class='menu'>
+        <view id='selectTicketList' bindtap='selectType' class='{{ticketClass}}'>
+          <span class='{{ticketLact}}'>票</span>
+        </view>
+        <view id='selectCardList' bindtap='selectType' class='{{cardClass}}'>
+          <span class='{{cardLact}}'>卡</span>
+        </view>
+        <view id='selectCurrencyList' bindtap='selectType' class='{{gameClass}}'>
+          <span class='{{gameLact}}'>币</span>
+        </view>
+      </view>
+      <view wx:for="{{list}}" wx:for-index="idx" wx:for-item="item" data-type="{{type}}" id="{{item.id}}" bindtap='goBuyDetai' class="b-box">
+        <view style='width:30%;'>
+          <image src="{{pub_url}}{{item.image}}" class="slide-image" style='width:180rpx;height:180rpx;' />
+        </view>
+        <view style='width:70%;position:relative;'>
+          <view style='color:#333333;font-weight:600;'>{{item.name}}</view>
+          <view style='color:#888888;font-size:24rpx;'>{{item.remark}}</view>
+          <view style='font-size:28rpx;'>
+            <view style='color:#666666;padding-top:20rpx;'> ￥{{item.priceBean.price}}<span style="padding-left:20rpx;padding-right:20rpx;">|</span>{{item.priceBean.goldPrice}}金豆</view>
+            <view style='color:#feae4e;position:relative;'>￥{{item.priceBean.vipPrice}}<span style="padding-left:20rpx;padding-right:20rpx;">|</span>{{item.priceBean.vipGoldPrice}}金豆<image src="./vip.png" class="vip" /></view>
+          </view>
+            <image src="./yjt.png" class="yjt" />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

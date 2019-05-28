@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view style='text-align:center;'>
+          <view style='padding-top:112rpx;'>
+            <image style='width:170rpx;height:170rpx;' src="/img/success.png"></image>
+          </view>
+          <view class="bf">
+            {{title}}
+          </view>
+          <view class="che">
+            {{name}}
+          </view>
+          <view wx:if="{{ptBtn == true}}" bindtap="goOther" class='btn'>
+            {{btn}}
+          </view>
+          <view wx:if="{{back == true}}" bindtap="getBack" class='btns'>
+             返回钱包
+          </view>
+      </view>
+    </view>
+  </view>
+</view>

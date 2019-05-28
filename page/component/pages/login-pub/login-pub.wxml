@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+    <view bindtap='back' style='position:absolute;width:100rpx;height:100rpx;top:30rpx;z-index:999;'></view>
+      <image src="/img/back.png" style='position:absolute;width:36rpx;height:36rpx;top:66rpx;left:15rpx;'></image>
+      <image mode="widthFix" style='position:absolute;width:{{scroll_width}}px;z-index:-1;' src="/img/login_bg.png"></image>
+      <view style='margin-left:5%;margin-right:5%;padding-top:200rpx;'>
+        <view style='font-size:48rpx;color:#ffffff;'>登录</view>
+        <view style='margin-top:50rpx;border-bottom:1px solid rgba(241, 241, 241, 0.53);padding-bottom:20rpx;color:#ffffff;position:relative;'>
+          <image wx:if="{{phone != ''}}"  bindtap="clearPhone" style='width:30rpx;height:30rpx;position:absolute;right:0;top:0;bottom:10rpx;margin:auto;z-index:999999;' src="/img/xiaochu.png"></image>
+          <input type="number" placeholder-class="phcolor"  bindinput="phone" value="{{phone}}" placeholder="请输入手机号码"  />
+        </view>
+        <view style='display:flex;padding-top:60rpx;border-bottom:1px solid rgba(241, 241, 241, 0.53);;padding-bottom:20rpx;'>
+          <view style='width:65%;color:#ffffff;position:relative;'>
+            <image bindtap="clearCode" wx:if="{{code != ''}}" style='width:30rpx;height:30rpx;position:absolute;right:50rpx;top:0;bottom:0;margin:auto;z-index:999999;' src="/img/xiaochu.png"></image>
+            <input type="number" placeholder-class="phcolor" bindinput="code" value="{{code}}" placeholder="请输入验证码"  />
+          </view>
+          <view style='width:35%;text-align:right;color:#ffffff;font-size:28rpx;text-align:center;position:relative;' class="{{codeSty}}" bindtap='getCode'>
+          <view style='padding-top:4rpx;'>{{codeMs}}</view>
+          <span style="width:10rpx;height:30rpx;position:absolute;border-left:1px solid #ffffff;left:0;top:0;bottom:0;margin:auto;"></span>
+          </view>
+        </view>
+        <view bindtap='login' class="{{btn}}" style='margin-top:138rpx;'>
+            立即登录
+        </view> 
+      </view>
+    </view>
+  </view>
+</view>

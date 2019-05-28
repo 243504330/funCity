@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+       <image style="height:{{scroll_height}}px;width:100%;display:block;position:absolute;"
+            mode="444"
+            src="./bg.png"
+          ></image>
+        <view class="box2" style='position:absolute;width:100%;'>
+          <view class="name">
+            提币授权码
+          </view>
+          <view class="date">
+            请将此二维码展示给店员
+          </view>
+        <view class='box'>
+            <view class="c-box">
+                <canvas bindtap='changeCode' class='canvas' canvas-id='canvas'></canvas>
+                <view>如二维码失效，请点击二维码刷新</view>
+            </view>
+        </view>
+        </view>
+    </view>
+  </view>
+</view>

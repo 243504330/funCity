@@ -1,0 +1,71 @@
+<view bindtap='close'  style='position:fixed;width:{{scroll_width}}px;height:{{scroll_height}}px;background:rgba(0,0,0,0.30);display:{{state}};z-index:999999;'>
+  <view class='baib' style='height:{{scroll_width * 1.15}}px;'>
+    <view style='padding:60rpx 40rpx;'>
+      <view style='font-size:48rpx;'>{{name}}</view>
+      <view style='font-size:28rpx;margin-bottom:100rpx;'>有效期至{{duedate}}</view>
+      <canvas bindtap='changeCode' style='width:{{scroll_width * 0.6}}px;;height:{{scroll_width * 0.6}}px;bottom:40rpx;left:0;right:0;margin:auto;' canvas-id='canvas'></canvas>
+      <view style='text-align:center;font-size:28rpx;color:#aaaaaa;'>请将此二维码展示给商家</view>
+    </view>
+  </view>
+</view>
+<scroll-view scroll-y="{{scroll}}" class="container" style='width:{{scroll_width}}px;height:{{scroll_height}}px;'>
+      <view style='padding-top:20rpx;'>
+        <view style='text-align:center;padding-top:40%;display:{{hasTicket}};'>
+          <image mode="widthFix" style='width:140rpx;' src='./wupiao.png'></image>
+          <view style="color:#888888;padding-top:20rpx;">您还没有任何门票</view>
+        </view>
+        <view style='display:{{hasList}};'>
+          <view wx:for="{{list}}"  wx:for-item="item" id="{{item.id}}" data-name="{{item.name}}"   data-duedate="{{item.dueDate}}" data-notAvailable="{{item.notAvailable}}"  data-ticketid="{{item.ticketId}}" bindtap="goTicketDetail" style='display:flex;margin-left:40rpx;margin-right:40rpx;box-shadow: 0 5px 10px 0 rgba(85,85,85,0.10);margin-top:30rpx;'>
+            <view style='width:30%;height:100px;'>
+              <image style="width:200rpx;height:200rpx;border-radius:4rpx;" mode="444" src="{{pub_url}}{{item.image}}"></image>
+            </view>
+            <view style='width:70%;padding-top:20rpx;position:relative;padding-left:20rpx;z-index:-1;background:#fff;'>
+              <view style='font-size:32rpx;font-weight:600;'>{{item.name}}</view>
+              <view style='font-size:24rpx;color:#666666;'>
+                有效期至<span style="padding-left:10rpx;">{{item.dueDate}}</span>
+              </view>
+              <image wx:if="{{item.status == 'activated'}}" style='width:100rpx;height:100rpx;position:absolute;right:0;top:0;' src="/img/yjh.png"></image>
+              <view style='font-size:24rpx;color:#888888;position:absolute;bottom:20rpx;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;width:260rpx;'>
+                <span style="">
+                <span wx:if="{{item.ticketScope != ''}}">{{item.ticketScope}}</span>
+                <!-- <span wx:else>{{item.remark}}</span> -->
+                </span>
+              </view>
+              <view style='color:#888888;font-size:24rpx;display:none;'>{{item.remark}}</view>
+                <span wx:if="{{item.notAvailable != 'false'}}" class="use">
+                  <span wx:if="{{item.status == 'activated'}}">二维码</span>
+                  <span wx:else>去使用</span>
+                </span>
+                <span wx:else class="use" style="background: #D7CAE5;box-shadow:0 0 0 0;">去使用</span>
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{showGq == true}}" style='opacity: 0.5;position:relative;'>
+          <view style='height:2px;width:100%;border-bottom:1px dashed #888;position:absolute;top:68rpx;'></view>
+          <view style='padding-top:50rpx;padding-bottom:20rpx;text-align:center;font-size:28rpx;'>
+          <span style="background:#f9f9f9;z-index:999999;position:absolute;left:0;right:0;width:300rpx;margin:auto;">以下为过期/已使用门票</span></view>
+          <view style='margin-top:70rpx;'></view>
+          <view wx:for="{{gqList}}"  wx:for-item="item" id="{{item.id}}" data-name="{{item.name}}"   data-duedate="{{item.dueDate}}"  data-ticketid="{{item.ticketId}}" style='display:flex;margin-left:40rpx;margin-right:40rpx;box-shadow: 0 5px 10px 0 rgba(85,85,85,0.10);margin-top:30rpx;'>
+            <view style='width:30%;height:100px;'>
+              <image style="width:200rpx;height:200rpx;border-radius:4rpx;" mode="444" src="{{pub_url}}{{item.image}}"></image>
+            </view>
+            <view style='width:70%;padding-top:20rpx;position:relative;padding-left:20rpx;z-index:-1;background:#fff;'>
+              <view style='font-size:32rpx;font-weight:600;'>{{item.name}}</view>
+              <view style='font-size:24rpx;color:#666666;'>
+                有效期至<span style="padding-left:10rpx;">{{item.dueDate}}</span>
+              </view>
+              <view style='font-size:24rpx;color:#888888;position:absolute;bottom:20rpx;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;width:100%;'>
+                <span style="">
+                <span wx:if="{{item.ticketScope != ''}}">{{item.ticketScope}}</span>
+                <span wx:else>
+                  <span wx:if="{{item.status == 'used'}}">使用时间：{{item.updateTime}}</span>
+                </span>
+                </span>
+              </view>
+              <image wx:if="{{item.status == 'expired'}}" mode="widthFix" style='width:50px;height:50px;position:absolute;right:40rpx;top:0;bottom:0;margin:auto;' src="/img/ygq.png"></image>
+              <image wx:if="{{item.status == 'used'}}" mode="widthFix" style='width:50px;height:50px;position:absolute;right:40rpx;top:0;bottom:0;margin:auto;' src="/img/ysy.png"></image>
+            </view>
+          </view>
+        </view>
+     </view>
+</scroll-view>

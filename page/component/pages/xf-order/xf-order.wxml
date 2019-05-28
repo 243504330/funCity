@@ -1,0 +1,199 @@
+
+<view class="container">
+  <view class="page-body">
+    <view class="page-section" style='background:#f9f9f9;'>
+    <view class='tou'>
+      <view id="" bindtap='chose' style='width:33.333%;position:relative;'>
+        <span wx:if="{{type == ''}}" >
+          全部
+          <span class="act-btn"></span>
+        </span>
+        <span wx:else class="def-btn">全部</span>
+      </view>
+      <view id="pickup" bindtap='chose' style='width:33.333%;position:relative;'>
+        <span wx:if="{{type == 'pickup'}}" >待取
+           <span class="act-btn"></span>
+        </span>
+        <span wx:else class="def-btn">待取</span>
+      </view>
+      <view id="finished" bindtap='chose' style='width:33.3333%;position:relative;'>
+        <span wx:if="{{type == 'finished'}}">已完成<span class="act-btn"></span></span>
+        <span wx:else class="def-btn">已完成</span>
+      </view>
+    </view>
+      <swiper current="{{currentTab}}" bindchange="bindOrder" style='height:{{scroll_height}}px;width:100%;'>
+        <swiper-item>
+          <scroll-view bindscrolltoupper="upper" scroll-y style='height:{{scroll_height - 40}}px;width:100%;margin-top:84rpx;'>
+            <view wx:if="{{list == ''}}" style='text-align:center;padding-top:40%;'>
+              <image mode="widthFix" style='width:140rpx;' src='/img/no_order.png'></image>
+              <view style="color:#888888;padding-top:20rpx;">您还没有相关订单</view>
+            </view>
+            <view wx:for="{{list}}" wx:for-index="idx" wx:for-item="item" class='box' id="{{item.id}}" bindtap="goOrderDetai">
+              <view class='bxc'>
+                <view class='b-l'>
+                  {{item.orderClass}}
+                </view>
+                <view class="b-r">
+                <span wx:if="{{item.status == '已完成'}}">{{item.status}}</span>
+                <span wx:else style="color:#ff0050;">{{item.status}}</span>
+                </view>
+              </view>
+              <view class='bxc'>
+                <view style='width:25%;'>
+                  <image style="width:140rpx;height:140rpx;border-radius:4rpx;" mode="444" src="{{pub_url}}{{item.detailList[0]}}" ></image>
+                </view>
+          <view wx:if="{{item.detailList.length > 1}}" style='width:65%;position:relative;'>
+            <image style="width:140rpx;height:140rpx;border-radius:4rpx;" mode="444" src="{{pub_url}}{{item.detailList[1]}}" ></image>
+            <image wx:if="{{item.detailList.length > 2}}" style='width:40rpx;height:40rpx;position:absolute;top:0;bottom:0;margin:auto;padding-left:30rpx;' src="/img/dian.png"></image>
+          </view>
+                <view wx:else style='width:65%;position:relative;'>
+                  <view class='ts1'>{{item.name}}</view>
+                  <view class='ts2'>{{item.stant}}</view>
+                  <view class='ts3'>￥{{item.price}}</view>
+                </view>
+                <view style='width:10%;position:relative;'>
+                  <view class="as">x{{item.quantity}}</view>
+                </view>
+              </view>
+              <view class="bxc rs" style='display:block;'>
+                <span style="color:#333333;font-sise:28rpx;">实付:</span>
+                <span style="color:#ff0050;font-size:28rpx;font-weight:600;">￥{{item.orderAmt}}</span>
+              </view>
+            </view>
+            <view style='padding-top:20rpx;color:#f9f9f9;'>123</view>
+          </scroll-view>
+        </swiper-item>
+        <swiper-item>
+          <scroll-view bindscrolltoupper="upper" scroll-y style='height:{{scroll_height - 40}}px;width:100%;margin-top:84rpx;'>
+            <view wx:if="{{pickup_list == ''}}" style='text-align:center;padding-top:40%;'>
+              <image mode="widthFix" style='width:140rpx;' src='/img/no_order.png'></image>
+              <view style="color:#888888;padding-top:20rpx;">您还没有相关订单</view>
+            </view>
+            <view wx:for="{{pickup_list}}" wx:for-index="idx" wx:for-item="item" class='box' id="{{item.id}}" bindtap="goOrderDetai">
+              <view class='bxc'>
+                <view class='b-l'>
+                  {{item.orderClass}}
+                </view>
+                <view class="b-r">
+                <span wx:if="{{item.status == '已完成'}}">{{item.status}}</span>
+                <span wx:else style="color:#ff0050;">{{item.status}}</span>
+                </view>
+              </view>
+              <view class='bxc'>
+                <view style='width:25%;'>
+                  <image style="width:140rpx;height:140rpx;border-radius:4rpx;" mode="444" src="{{pub_url}}{{item.detailList[0]}}" ></image>
+                </view>
+          <view wx:if="{{item.detailList.length > 1}}" style='width:65%;position:relative;'>
+            <image style="width:140rpx;height:140rpx;border-radius:4rpx;" mode="444" src="{{pub_url}}{{item.detailList[1]}}" ></image>
+            <image wx:if="{{item.detailList.length > 2}}" style='width:40rpx;height:40rpx;position:absolute;top:0;bottom:0;margin:auto;padding-left:30rpx;' src="/img/dian.png"></image>
+          </view>
+                <view wx:else style='width:65%;position:relative;'>
+                  <view class='ts1'>{{item.name}}</view>
+                  <view class='ts2'>{{item.stant}}</view>
+                  <view class='ts3'>￥{{item.price}}</view>
+                </view>
+                <view style='width:10%;position:relative;'>
+                  <view class="as">x{{item.quantity}}</view>
+                </view>
+              </view>
+              <view class="bxc rs" style='display:block;'>
+                <span style="color:#333333;font-sise:28rpx;">实付:</span>
+                <span style="color:#ff0050;font-size:28rpx;font-weight:600;">￥{{item.orderAmt}}</span>
+              </view>
+            </view>
+            <view style='padding-top:20rpx;color:#f9f9f9;'>123</view>
+          </scroll-view>
+        </swiper-item>
+        <swiper-item>
+          <scroll-view bindscrolltoupper="upper" scroll-y style='height:{{scroll_height - 40}}px;width:100%;margin-top:84rpx;'>
+            <view wx:if="{{finished_list == ''}}" style='text-align:center;padding-top:40%;'>
+              <image mode="widthFix" style='width:140rpx;' src='/img/no_order.png'></image>
+              <view style="color:#888888;padding-top:20rpx;">您还没有相关订单</view>
+            </view>
+            <view wx:for="{{finished_list}}" wx:for-index="idx" wx:for-item="item" class='box' id="{{item.id}}" bindtap="goOrderDetai">
+              <view class='bxc'>
+                <view class='b-l'>
+                  {{item.orderClass}}
+                </view>
+                <view class="b-r">
+                <span wx:if="{{item.status == '已完成'}}">{{item.status}}</span>
+                <span wx:else style="color:#ff0050;">{{item.status}}</span>
+                </view>
+              </view>
+              <view class='bxc'>
+                <view style='width:25%;'>
+                  <image style="width:140rpx;height:140rpx;border-radius:4rpx;" mode="444" src="{{pub_url}}{{item.detailList[0]}}" ></image>
+                </view>
+          <view wx:if="{{item.detailList.length > 1}}" style='width:65%;position:relative;'>
+            <image style="width:140rpx;height:140rpx;border-radius:4rpx;" mode="444" src="{{pub_url}}{{item.detailList[1]}}" ></image>
+            <image wx:if="{{item.detailList.length > 2}}" style='width:40rpx;height:40rpx;position:absolute;top:0;bottom:0;margin:auto;padding-left:30rpx;' src="/img/dian.png"></image>
+          </view>
+                <view wx:else style='width:65%;position:relative;'>
+                  <view class='ts1'>{{item.name}}</view>
+                  <view class='ts2'>{{item.stant}}</view>
+                  <view class='ts3'>￥{{item.price}}</view>
+                </view>
+                <view style='width:10%;position:relative;'>
+                  <view class="as">x{{item.quantity}}</view>
+                </view>
+              </view>
+              <view class="bxc rs" style='display:block;'>
+                <span style="color:#333333;font-sise:28rpx;">实付:</span>
+                <span style="color:#ff0050;font-size:28rpx;font-weight:600;">￥{{item.orderAmt}}</span>
+              </view>
+            </view>
+            <view style='padding-top:20rpx;color:#f9f9f9;'>123</view>
+          </scroll-view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+</view>
+
+
+
+<!-- <view class="container">
+  <view class="page-body">
+    <view class="page-section">
+    <view class='tou'>
+      <view id="" bindtap='chose' style='width:33.333%;'>
+        <span wx:if="{{type == ''}}" class="act-btn">全部</span>
+        <span wx:else class="def-btn">全部</span>
+      </view>
+      <view id="pickup" bindtap='chose' style='width:33.333%;'>
+        <span wx:if="{{type == 'pickup'}}" class="act-btn">待取</span>
+        <span wx:else class="def-btn">待取</span>
+      </view>
+      <view id="finished" bindtap='chose' style='width:33.333%;'>
+        <span wx:if="{{type == 'finished'}}" class="act-btn">已完成</span>
+        <span wx:else class="def-btn">已完成</span>
+      </view>
+    </view>
+      <view  wx:for="{{list}}" wx:for-index="idx" wx:for-item="item" class='box' id="{{item.id}}" bindtap="goOrderDetai">
+        <view class='bxc'>
+          <view class='b-l'>
+            {{item.orderClass}}
+          </view>
+          <view class="b-r">{{item.status}}</view>
+        </view>
+        <view class='bxc'>
+          <view style='width:30%;'>
+            <image style="width:140rpx;height:140rpx;" mode="444" src="{{pub_url}}{{item.detailList[0]}}" ></image>
+          </view>
+          <view style='width:50%;'>
+            <view class='ts1'>{{item.name}}</view>
+            <view class='ts2'>{{item.stant}}</view>
+            <view class='ts2'>{{item.price}}<span>金豆</span></view>
+          </view>
+          <view style='width:20%;position:relative;'>
+            <view class="as">X{{item.quantity}}</view>
+          </view>
+        </view>
+        <view class="bxc rs" style='display:block;'>
+          <span style="color:#333333;">实付:</span>
+          <span style="padding-left:10rpx;color:#ffae4e;">{{item.orderAmt}}</span>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> -->

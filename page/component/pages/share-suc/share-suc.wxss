@@ -1,0 +1,13 @@
+page{
+  background: #2e1163;
+}
+.btn{
+  margin-top:20%;
+  background:linear-gradient(135deg, #FF58D3 0%, #4A3AF1 100%);
+  box-shadow:inset 4px 4px 8px 0 #CF9DFF;
+  color:#ffffff;
+  margin-left:10%;
+  margin-right:10%;
+  line-height:94rpx;
+  border-radius:100rpx;
+}

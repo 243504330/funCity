@@ -1,0 +1,56 @@
+page{
+  background: #2e1163;
+}
+.def_btn{
+  color:#fff;
+  text-align:center;
+  background:#D7CAE5;
+  line-height:92rpx;
+  border-radius:100rpx;
+  margin-top:50rpx;
+}
+.act_btn{
+  color:#fff;
+  text-align:center;
+  background:linear-gradient(135deg, #FF58D3 0%, #4A3AF1 100%);
+  line-height:92rpx;
+  border-radius:100rpx;
+  margin-top:50rpx;
+  box-shadow:  inset 4px 4px 8px 0 #CF9DFF;
+}
+.phone{
+  color:#ffffff;
+  position:absolute;
+  top:-12rpx;
+  bottom:0;
+  margin:auto;
+  text-align:center;
+}
+.line{
+  border-top:1px solid #e5e5e5;
+  margin-top:30px;
+  padding-bottom:60rpx;
+  margin-left:40rpx;
+  margin-right:40rpx;
+}
+.f5{
+  color:#ff0050;
+}
+button{
+  background:rgba(0, 0, 0, 0);
+  padding:0;
+  margin:0;
+  font-size:24rpx;
+  color:rgba(0, 0, 0, 0);
+  border:none;
+  line-height: 50rpx;
+  text-align: left;
+}
+button::after {
+  border: none;
+}
+.button-hover{
+  color:rgba(0, 0, 0, 0);
+  background-color:rgba(0, 0, 0, 0);
+  border:none;
+}

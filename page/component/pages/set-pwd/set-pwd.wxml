@@ -1,0 +1,89 @@
+<view class="modal-bg" style='display:{{modal_flag}};'>
+  <view class="p-modal-box" style='width:30%;height:260rpx;'>
+    <image style='width:100rpx;height:100rpx;padding-top:40rpx;' src="/img/success.png"></image>
+    <view style='text-align:center;color:#333333;padding-top:20rpx;'>
+      设置成功
+    </view>
+  </view>
+</view>
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view bindtap='back' style='position:absolute;width:100rpx;height:100rpx;top:30rpx;z-index:999;'></view>
+      <image src="/img/hei_left.png" style='position:absolute;width:36rpx;height:36rpx;top:66rpx;left:15rpx;'></image>
+      <view style='margin-left:5%;margin-right:5%;'>
+        <view class="new" style='margin-top:200rpx;'>
+          <view style='font-size:48rpx;color:#333333;'>
+            <view wx:if="{{isFot == true}}">
+              <span>验证手机号</span>
+            </view>
+            <view wx:else>
+              <view wx:if='{{oldpwd == true}}'>
+                <span>旧交易密码</span>
+              </view>
+              <view wx:else>
+                <span wx:if="{{first == 'block'}}">新交易密码</span>
+                <span wx:else>确认新交易密码</span>
+              </view>
+            </view>
+          </view>
+          <view wx:if="{{isFot == true}}">
+            <view style='font-size:28rpx;color:#888888;'>验证码已发送到{{mdPhone}}手机</view>
+          </view>
+          <view wx:else>
+            <view wx:if='{{oldpwd == true}}' style='font-size:28rpx;color:#888888;'>请输入原交易密码验证</view>
+            <view wx:else style='font-size:28rpx;color:#888888;'>请设置6位交易密码保障账户安全</view>
+          </view>
+            <view bindtap='subPwd' class='mm-sub' style='margin-left:5%;margin-right:5%;text-align:center;margin-top:80rpx;'>
+          <view class="mm-xbox" wx:if="{{pwdleng >= 0}}"  style='border:1px solid #8530ff;'>
+            <view class='xing' wx:if="{{pwdleng > 0}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+          <view class="mm-xbox" wx:if="{{pwdleng >= 1}}" style='border:1px solid #8530ff;'>
+            <view class='xing'  wx:if="{{pwdleng > 1}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+          <view class="mm-xbox" wx:if="{{pwdleng >= 2}}" style='border:1px solid #8530ff;'>
+            <view class='xing' wx:if="{{pwdleng > 2}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+          <view class="mm-xbox" wx:if="{{pwdleng >= 3}}" style='border:1px solid #8530ff;'>
+            <view class='xing' wx:if="{{pwdleng > 3}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+          <view class="mm-xbox" wx:if="{{pwdleng >= 4}}" style='border:1px solid #8530ff;'>
+            <view class='xing' wx:if="{{pwdleng > 4}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+          <view class="mm-xbox" wx:if="{{pwdleng >=5}}" style='border:1px solid #8530ff;'>
+            <view class='xing' wx:if="{{pwdleng == 6}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+        </view>
+<input bindfocus="keybo" class='payInput' bindinput="userpwd" value="{{userpwd}}" type="number" maxlength="8" focus="{{focus}}"  />
+        <view wx:if="{{codeShow == true}}" bindtap='fotPwd' style='text-align:center;font-size:28rpx;color:#7381B9;padding-top:40rpx;'>
+        <span wx:if="{{oldpwd == true}}">{{codeMs}}</span>
+        
+        </view>
+            <!-- <view class="first" style=''>
+              <view bindtap='subPwd' style='display:flex;padding-top:80rpx;'>
+                <view class="xbox"><view wx:if="{{pwdleng > 0}}" class='xing'>*</view></view>
+                <view class="xbox"><view wx:if="{{pwdleng >1}}" class='xing'>*</view></view>
+                <view class="xbox"><view wx:if="{{pwdleng >2}}" class='xing'>*</view></view>
+                <view class="xbox"><view wx:if="{{pwdleng >3}}" class='xing'>*</view></view>
+                <view class="xbox"><view wx:if="{{pwdleng >4}}" class='xing'>*</view></view>
+                <view class="xbox"><view wx:if="{{pwdleng == 6}}" class='xing'>*</view></view>
+              </view>
+            </view>
+            <input style='display:none;' bindinput="userpwd" value="{{userpwd}}" type="number" maxlength="6" focus="{{focus}}"  /> -->
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

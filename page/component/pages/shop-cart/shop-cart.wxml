@@ -1,0 +1,63 @@
+<view class="container">
+  <view class="page-body">
+      <view style='text-align:center;padding-top:45%;' wx:if="{{list == ''}}">
+        <image mode="widthFix" style='width:140rpx;' src='/img/no_shop.png'></image>
+        <view style="color:#888888;padding-top:20rpx;">购物车空空如也</view>
+      </view>
+    <view  wx:else class="page-section" style='margin-bottom:200rpx;'>
+      <view class='hkp'>
+        <view class='zdm'>
+          <view bindtap='check' class="wam">
+            <image wx:if="{{status == 'Y'}}" class="duigou" src="/img/duigou.png"></image>
+            <image wx:else class="duigou" src="/img/hyuan.png"></image>
+          </view>
+          <view bindtap='check' class="tfz" style='width:30%;'>全选</view>
+          <view class="nms">
+          </view>
+          <view bindtap='subCart' class="qjs">
+            <span class="gojs">去结算￥{{priceRes}}</span>
+          </view>
+        </view>
+      </view>
+      <view class='dbox'>
+        <view class="ola">
+          <view bindtap='check' class="wam">
+            <image wx:if="{{status == 'Y'}}" class="duigou" src="/img/duigou.png"></image>
+            <image wx:else class="duigou" src="/img/hyuan.png"></image>
+          </view>
+          <view bindtap='check' class="tfz">畅饮区</view>
+        </view>
+        <view></view>
+        <view wx:for="{{list}}"  wx:for-item="item" style='display:flex;padding-bottom:40rpx;'>
+          <view id="{{item.id}}" data-status="{{item.ischecked}}" bindtap='goodsCheck' class="wam">
+            <image wx:if="{{item.ischecked == 'Y'}}" class="duigou" src="/img/duigou.png"></image>
+            <image wx:else class="duigou" src="/img/hyuan.png"></image>
+          </view>
+          <view style='width:30%;'>
+            <image class='nrtp' src="{{pub_url}}{{item.imgPath}}"></image>
+          </view>
+          <view style='width:60%;position:relative;margin-bottom:4rpx;'>
+            <view class="title">{{item.name}}</view>
+            <view class='content'>{{item.toySpec}}</view>
+            <view class="chengs">
+              ￥{{item.salePrice}}
+            </view>
+            <view style='display:flex;position:absolute;bottom:0;right:0;width:190rpx;'>
+              <view style='width:30%;position:relative;'>
+                <image  id="{{item.id}}" bindtap='delCart' style='width:50rpx;height:50rpx;position:absolute;bottom:0;' src="/img/jian.png"></image>
+              </view>
+              <view style='width:40%;text-align:center;position:relative;'>
+                <view style='width:80rpx;position:absolute;bottom:0;'>
+                  {{item.quantity}}
+                </view>
+              </view>
+              <view id="{{item.id}}" bindtap='addCart' style='width:30%;position:relative;'>
+                <image style='width:50rpx;height:50rpx;position:absolute;bottom:0;' src="/img/jia.png"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

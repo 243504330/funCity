@@ -1,0 +1,122 @@
+.bg{
+  width:100%;display:block;z-index:-1;
+}
+.xgg{
+  font-size:28rpx;
+  color:#576B95;
+  padding-top:40rpx;
+  text-decoration:underline;
+}
+.tec{
+  position:absolute;
+  left:0;
+  right:0;
+  width:200rpx;
+  margin:auto;
+  text-align:center;
+  top:180rpx;
+  background:#f9f9f9;
+  border-radius:4rpx;
+  height:280rpx;
+}
+.tpla{
+  width:26rpx;
+  height:26rpx;
+  position:absolute;
+  top:0;
+  bottom:0;
+  margin:auto;
+}
+.fsa{
+  width:50%;position:relative;
+}
+.bsay{
+  padding-left: 36rpx;
+}
+.sub{
+  padding:20rpx 110rpx;
+  color:#ffffff;
+  background-image:linear-gradient(-135deg, #4A3AF1  0%, #D358FF 100%);
+  box-shadow: inset 4px 4px 8px 0 #CF9DFF;
+  border-radius: 100rpx;
+}
+.sub_def{
+  padding:20rpx 110rpx;
+  color:#ffffff;
+  background: #D7CAE5;
+  box-shadow: inset 0px 0px 0px 0;
+  border-radius: 100rpx;
+}
+.about{
+  font-size:26rpx;
+  color:#888888;
+  margin-left:5%;
+  margin-right:5%;
+  padding-top:20rpx;
+}
+.sds{
+  display:flex;
+  margin-left:5%;
+  margin-right:5%;
+  padding-top:50rpx;
+  padding-bottom:50rpx;
+  border-bottom:1px solid #f5f5f5;
+}
+.tpla{
+  width:26rpx;
+  height:26rpx;
+  position:absolute;
+  top:0;
+  bottom:0;
+  margin:auto;
+}
+.whc-girl{
+  background:#fff5f5;
+  padding:10rpx 48rpx;
+  border-radius:100rpx;
+  border:2px solid #FFCECE;
+  position:absolute;
+  left:10%;
+  font-size:28rpx;
+}
+.whc-girl-act{
+  background:#ff5555;
+  padding:10rpx 48rpx;
+  border-radius:100rpx;
+  border:2px solid #ff5555;
+  position:absolute;
+  left:10%;
+  font-size:28rpx;
+  box-shadow: 0 5px 7px 0 rgba(255,95,95,0.30);
+}
+.whc-act{
+  background:#62A6FF;
+  padding:10rpx 48rpx;
+  border-radius:100rpx;
+  border:2px solid #62A6FF;
+  position:absolute;
+  right:10%;
+  font-size:28rpx;
+  box-shadow: 0 5px 7px 0 rgba(98,166,255,0.30);
+}
+.whc{
+  background:#f5faff;
+  padding:10rpx 48rpx;
+  border-radius:100rpx;
+  border:2px solid #D3E6FF;
+  position:absolute;
+  right:10%;
+  font-size:28rpx;
+}
+.jds{
+  position:absolute;
+  left:0;
+  right:0;
+  top:30%;
+  bottom:0;
+  margin:auto;
+}
+.tpwz{
+  font-size: 28rpx;
+  color:#aaaaaa;
+}

@@ -1,0 +1,219 @@
+<view style='position:fixed;background:rgba(0, 0, 0, 0.43);z-index:9;right:0;bottom:30rpx;width:100rpx;border-radius:25px;'>
+  <view style='position:relative;width:100%;height:100%;'>
+    <view style='text-align:center;z-index:999999;padding-top:40rpx;padding-bottom:40rpx;'>
+      <image bindtap='goCz' style='width:54rpx;height:46rpx;' src="/img/goldcz.png"></image>
+      <view style='font-size:24rpx;color:rgba(255, 255, 255, 0.8);'>
+        <view bindtap='goCz'>充值</view>
+        <view style='position:relative;padding-top:28rpx;padding-bottom:28rpx;'>
+          <span style="height:1px;width:70rpx;background:rgba(255, 255, 255, 0.4);position:absolute;z-index:9;left:0;right:0;margin:auto;"></span>
+        </view>
+        <!-- <view bindtap="goApp">去APP</view> -->
+        <view>
+          <button open-type="launchApp" app-parameter="wechat" binderror="launchAppError">去APP</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<scroll-view
+    scroll-y
+    style="height: {{scroll_height}}px;"
+    bindscrolltoupper="upper"
+    bindscrolltolower="lower"
+    bindscroll="scroll"
+  >
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+         <image  style="width:100%;display:block;"
+            mode="widthFix"
+            src="/img/bg.png"
+          ></image>
+          <view>
+     <view style='display:flex;margin-left:5%;margin-right:5%;padding-top:130rpx;position:absolute;top:0;width:100%;' >
+        <view bindtap='headClick'  style='width:18%;'>
+           <image wx:if="{{userinfoid}}" style="width:100rpx;height:100rpx;border-radius:100rpx;border:2px solid #ffffff;" mode="aspectFill" src="{{pub_url}}{{data.appUserInfo.photo}}"></image>
+          <image wx:else style="height:124rpx;width:100rpx;border-radius:100rpx;position:absolute;margin-top:-10rpx;" src="/img/header.png" ></image>
+        </view>
+        <view style='width:62%;' >
+          <view>
+            <view bindtap='headClick' style='font-weight:600;color:#ffffff;font-size:36rpx;'>
+              <view wx:if="{{userinfoid}}">
+                {{data.appUserInfo.nickname}} 
+                <image wx:if="{{data.appUserInfo.sex == 'B'}}" style="width:24rpx;height:24rpx;"mode="444" src="/img/boy.png" ></image>
+                <image wx:else style="width:24rpx;height:24rpx;"mode="444" src="/img/girl.png" ></image>
+              </view>
+              <view wx:else>
+                未登录
+              </view>
+            </view>
+            <view  style='position:relative;'>
+              <image bindtap='vipClick' wx:if="{{viptype != 'normal'}}" class="vip" mode="444" src="/img/vip.png"></image>
+              <image bindtap='vipClick' wx:else class="vip" mode="444" src="/img/vip_hui.png"></image>
+              <span  bindtap='scoreClick' class="jf">积分：
+                <span>{{sumscore}}</span>
+              </span>
+            </view>
+          </view>
+        </view>
+     </view>
+    <!-- <view style='margin-left: 5%;margin-right: 5%;background: #fff;padding:20px 0px;border-radius:4px;margin-top:40rpx;box-shadow:0 3px 20px rgba(0,0,0,0.05);' bindtap='goMyWallet'>
+      <view style='display:flex;padding-left:30rpx;padding-right:30rpx;' >
+         <view style='width:50%;font-weight:600;font-size:34rpx;'>我的钱包</view>
+         <view style='width:50%;text-align:right;'>
+            <image style="width:5px;"
+            mode="widthFix"
+            src="/img/yjt.png"
+          ></image>
+         </view>
+      </view>
+      <view style='display:flex;text-align:center;padding-top:20px;'>
+        <view style='width:25%;'>
+          <view class="fz4">{{data.appUserInfo.sumgold}}</view>
+          <view  class='f888'>金豆</view>
+          
+        </view>
+        <view class="line"></view>
+        <view style='width:25%;'>
+          <view class="fz4">{{data.myCardNum}}</view>
+          <view class='f888'>卡</view>
+        </view>
+        <view class="line"></view>
+        <view style='width:25%;'>
+          <view class="fz4">{{data.myTicketNum}}</view>
+          <view  class='f888'>票</view>
+        </view>
+        <view class="line"></view>
+        <view style='width:25%;'>
+          <view class="fz4">{{data.appUserInfo.sumgamecurrency}}</view>
+          <view class='f888'>游戏币</view>
+        </view>
+      </view>
+    </view> -->
+    <view style='position:absolute;width:100%;background:#f9f9f9;'>
+     <view style='margin-left: 5%;margin-right: 5%;background: #fff;padding-top:40rpx;border-radius:8rpx;margin-top:-120rpx;box-shadow:0 5px 5px 0 rgba(0,0,0,0.05);'>
+      <view style='display:flex;padding-left:30rpx;padding-right:30rpx;'>
+         <view style='width:50%;font-weight:600;font-size:34rpx;'>我的订单</view>
+         <view style='width:50%;text-align:right;'>
+           
+         </view>
+      </view>
+      <view style='display:flex;text-align:center;padding-top:20px;padding-bottom:40rpx;'>
+        <view style='width:25%;' id="cw-order" bindtap="goOther">
+          <view>
+            <image style="width:60rpx;height:60rpx;" src="/img/cwdd.png" ></image>
+          </view>
+          <view class="f888">畅玩订单</view>
+        </view>
+        <view style='width:25%;' id="xf-order" bindtap="goOther">
+          <view><image style="width:60rpx;height:60rpx;" src="/img/xfdd.png"
+          ></image></view>
+          <view  class="f888">消费订单</view>
+        </view>
+        <view style='width:25%;' id="zp-order" bindtap="goOther">
+          <view><image style="width:60rpx;height:60rpx;" src="/img/zpdd.png"
+          ></image></view>
+          <view class="f888">租赁订单</view>
+        </view>
+        <view style='width:25%;' id="cz-order" bindtap="goOther">
+          <view><image style="width:60rpx;height:60rpx;" src="/img/czdd.png"
+          ></image></view>
+          <view class="f888">充值订单</view>
+        </view>
+      </view>
+      <view id="{{order.id}}" bindtap="goZX" data-type="{{order.orderName}}" wx:if="{{orderId != ''}}" style=''>
+        <view class='walo'>
+          <view style='width:50%;font-size:28rpx;font-weight:600;padding-left:5%;'>{{order.orderName}}</view>
+          <view style='width:50%;text-align:right;font-size:24rpx;color:#FF0050;padding-right:5%;'>
+         
+          <view wx:if="{{order.status == '已完成'}}" style='color:#888888;'> {{order.status}}</view>
+          <view wx:else>{{order.status}}</view>
+          </view>
+        </view>
+        <view style='display:flex;padding:30rpx 5%;'>
+          <view style='width:26%;'>
+            <image style='width:140rpx;height:140rpx;' src="{{pub_url}}{{order.detailList[0]}}"></image>
+          </view>
+          <view wx:if="{{order.detailList.length > 1}}" style='width:74%;position:relative;'>
+            <image style='width:140rpx;height:140rpx;' src="{{pub_url}}{{order.detailList[1]}}"></image>
+            <image wx:if="{{order.detailList.length > 2}}" style='width:40rpx;height:40rpx;position:absolute;top:0;bottom:0;margin:auto;padding-left:30rpx;' src="/img/dian.png"></image>
+            <view style='position:absolute;font-size:26rpx;bottom:0;color:#888888;right:0;'>x{{order.quantity}}</view>
+          </view>
+          <view wx:else style='width:74%;position:relative;'>
+            <view style='position:absolute;top:0;'>
+              <view style='font-size:28rpx;font-weight:600;'>{{order.name}}</view>
+              <view style='font-size:26rpx;color:#888888;'>{{order.stant}}</view>
+            </view>
+            
+            <view wx:if="{{order.orderName != '书城'}}" style='position:absolute;font-size:26rpx;bottom:0;color:#FF0050;font-weight:600;'>
+            <span wx:if="{{order.orderName == '体验区（租）' || order.orderName == '归还体验玩具（租）'}}">￥{{order.totalRent}}/天</span>
+            <span wx:else>￥{{order.orderAmt}}</span>
+            </view>
+            <view style='position:absolute;font-size:26rpx;bottom:0;color:#888888;right:0;'>x{{order.quantity}}</view>
+          </view>
+        </view>
+        <view wx:if="{{order.orderName != '书城'}}" class='walo' style='font-size:28rpx;text-align:right;display:block;padding-right:5%;'>
+          <view>
+            <span wx:if="{{order.orderName == '体验区（租）' || order.orderName == ' 归还体验玩具（租）'}}">
+              <span wx:if="{{order.status == '已归还'}}">实退押金:</span>
+              <span wx:elif="{{order.status == '部分待归还'}}">当前押金:</span>
+              <span wx:else>实付押金:</span>
+            </span>
+            <span wx:else>实付:</span>
+            <span style="font-weight:600;color:#ff0050;">￥{{order.orderAmt}}</span>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <view style='box-shadow:0 5px 5px rgba(0,0,0,0.05);margin-left:5%;margin-right:5%;margin-top:20rpx;'>
+    <view id="bb-datas" bindtap="goOther" style='background: #fff;padding:20px 0px;border-top-left-radius:8rpx;border-top-right-radius:8rpx;'>
+      <view style='display:flex;padding-left:30rpx;padding-right:30rpx;'>
+         <view style='width:50%;font-weight:600;position:relative;'><image style="width:40rpx;height:42rpx;position:absolute;top:0;bottom:0;margin:auto;" src="/img/bbda.png"></image><span style="padding-left:30px;">宝宝档案</span></view>
+          <view style='width:45%;text-align:right;'>
+            <span class="xiaoz" wx:if="{{notice != ''}}">{{notice}}</span>
+          </view>
+         <view style='width:5%;text-align:right;'>
+            <image style="width:5px;height:10px;"
+            mode="444"
+            src="/img/yjt.png"
+          ></image>
+         </view>
+        </view>
+      </view>
+      <view id="bb-creat" bindtap="yqFrid" style='background: #fff;padding:20px 0px;border-top:1px solid #f5f5f5;'>
+      <view style='display:flex;padding-left:30rpx;padding-right:30rpx;'>
+         <view style='width:50%;font-weight:600;position:relative;'><image style="width:40rpx;height:42rpx;position:absolute;top:0;bottom:0;margin:auto;" src="/img/tjhy.png"></image><span style="padding-left:30px;">送Ta免费票</span></view>
+          <view style='width:45%;text-align:right;'>
+            <span class="xiaoz">推荐好友得双重好礼</span>
+          </view>
+         <view style='width:5%;text-align:right;'>
+            <image style="width:5px;height:10px;"
+            mode="444"
+            src="/img/yjt.png"
+          ></image>
+         </view>
+        </view>
+      </view>
+      <view id="setting" bindtap="goOther" style='background: #fff;padding:20px 0px;border-top:1px solid #f5f5f5;border-bottom-left-radius:8rpx;border-bottom-right-radius:8rpx;'>
+      <view style='display:flex;padding-left:30rpx;padding-right:30rpx;'>
+         <view style='width:50%;font-weight:600;position:relative;'><image style="width:40rpx;height:42rpx;position:absolute;top:0;bottom:0;margin:auto;" src="/img/set.png"></image><span style="padding-left:30px;">设置</span></view>
+         <view style='width:50%;text-align:right;'>
+            <image style="width:5px;height:10px;"
+            mode="444"
+            src="/img/yjt.png"
+          ></image>
+         </view>
+        </view>
+      </view>
+       
+    </view>
+ <view style='padding-top:60rpx;'></view>
+
+        </view>
+       
+    </view>
+    </view>
+  </view>
+</view>
+ </scroll-view>

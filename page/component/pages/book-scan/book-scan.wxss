@@ -1,0 +1,35 @@
+.title{
+  font-weight: 600;
+}
+.content{
+  font-size: 28rpx;
+  color:#666666;
+}
+.box{
+  margin-bottom:60rpx;
+  padding-bottom:60rpx;
+  border-bottom:1px solid #d8d8d8;
+}
+.dbox{
+  position:fixed;
+  display: flex;
+  bottom:0;
+  background:#ffffff;
+  width:100%;
+  text-align: center;
+  box-shadow:0 -3px 8px 0 rgba(136,136,136,0.30);
+  padding-top:40rpx;
+  padding-bottom:40rpx;
+}
+.card{
+  padding:24rpx 110rpx;
+  background:#9fe363;
+  color:#ffffff;
+  border-radius:50rpx;
+}
+.ticket{
+  padding:24rpx 110rpx;
+  background:#FFAE4E;
+  color:#ffffff;
+  border-radius:50rpx;
+}

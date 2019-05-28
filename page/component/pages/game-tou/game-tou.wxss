@@ -1,0 +1,11 @@
+@import "/css/lib.wxss";
+.btn{
+  background:linear-gradient(135deg, #D358FF 0%, #4A3AF1 100%);
+  color:#ffffff;
+  box-shadow:inset 4px 4px 8px 0 #CF9DFF;
+  margin-left:5%;
+  margin-right:5%;
+  line-height:94rpx;
+  border-radius:100rpx;
+  margin-top:80rpx;
+}

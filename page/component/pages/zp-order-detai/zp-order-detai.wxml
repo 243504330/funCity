@@ -1,0 +1,172 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view wx:if="{{list.object.orderClass == '书城'}}">
+      </view>
+      <view wx:else class="wcx">
+        <view class="tit1">取玩具编号</view>
+        <view style='font-size:100rpx;text-align:center;font-weight:600;'>N{{orderNo}}</view>
+      </view>
+
+      <view class="wcx">
+        <view class="tit1">账号信息</view>
+        <view class="tit2">昵称：<span>{{list.ext.nickname}}</span></view>
+        <view  class="tit2">手机：<span>{{list.ext.mobilephone}}</span></view>
+      </view>
+      <view class="wcx">
+        <view class="tit1">订单信息</view>
+        <view class="tit2" style='position:relative;'>订单编号：<span>{{list.object.orderNo}}</span>
+          <span bindtap="copy" id="{{list.object.orderNo}}" class="copy">复制</span>
+        </view>
+        <view class="tit2">下单时间：<span>{{list.object.orderTime}}</span></view>
+        <view wx:if="{{list.object.status != '待取'}}">
+          <view class="tit2">起租时间：<span>{{list.object.orderTime}}</span></view>
+        </view>
+        <view class="tit2">订单状态：<span>{{list.object.status}}</span></view>
+        <view wx:if="{{list.object.orderClass != '书城'}}" class="tit2">支付方式：<span>{{list.object.cons_type_str}}</span></view>
+      </view>
+      <view wx:if="{{list.object.orderClass == '书城'}}">
+        <view class="wcx" >
+          <view class="tit1" style='border-bottom:1px solid #f6f6f6;'>
+            {{list.object.orderClass}}
+          </view>
+          <view wx:for="{{list.object.detailList}}" wx:for-index="idx" wx:for-item="res" style='display:flex;margin-top:30rpx;margin-bottom:30rpx;'>
+            <view style='width:26%;position:relative;'>
+              <view wx:if="{{res.status == '已归还'}}" class="guihuan">{{res.status}}</view>
+              <image style="width:140rpx;height:140rpx;" mode="444" src="{{pub_url}}{{res.img}}" ></image>
+            </view>
+            <view style='width:74%;position:relative;'>
+              <view style='font-size:28rpx;color:#333333;'>{{res.name}}</view>
+              <view class="tit2" style='padding-top:0rpx;'>{{res.stant}}</view>
+              <view wx:if="{{list.object.orderClass != '书城'}}" class="tit2" style='position:absolute;bottom:4rpx;'>
+                <span wx:if="list.payWay =='gold'">
+                  ￥{{res.totalRent}}/天
+                </span>
+                <span wx:else>
+                  ￥{{res.totalRent}}/天
+                </span>
+              </view>
+              <view class='x1' style='position:absolute;bottom:0;'>X{{res.quantity}}</view>
+            </view>
+          </view>
+          <view wx:if="{{list.object.orderClass == '书城'}}">
+          </view>
+          <view wx:else style='display:flex;border-top:1px solid #f6f6f6;padding-top:30rpx;maring-top:30rpx;'>
+            <view wx:if="{{res.status == '已归还'}}" style='width:50%;font-size:28rpx;color:#666666;'>实退押金</view>
+            <view wx:else style='width:50%;font-size:28rpx;color:#666666;'>实付押金</view>
+            <view style='width:50%;font-size:28rpx;color:#ff0050;text-align:right;font-weight:600;'>￥{{res.price}}</view>
+          </view>
+        </view>
+      </view>
+      <view wx:else>
+        <view wx:for="{{list.object.detailList}}" wx:for-index="idx" wx:for-item="res" wx:if="{{res.status == '已归还'}}"  class="wcx" >
+          <view class="tit1" style='border-bottom:1px solid #f6f6f6;'>
+            <span wx:if="{{res.status == '已归还'}}">
+              归还体验玩具（租）
+            </span>
+          </view>
+          <view style='display:flex;margin-top:30rpx;margin-bottom:30rpx;'>
+            <view style='width:26%;position:relative;'>
+              <view wx:if="{{res.status == '已归还'}}" class="guihuan">{{res.status}}</view>
+              <image style="width:140rpx;height:140rpx;" mode="444" src="{{pub_url}}{{res.img}}" ></image>
+            </view>
+            <view style='width:74%;position:relative;'>
+              <view style='font-size:28rpx;color:#333333;'>{{res.name}}</view>
+              <view class="tit2" style='padding-top:0rpx;'>{{res.stant}}</view>
+              <view wx:if="{{list.object.orderClass != '书城'}}" class="tit2" style='position:absolute;bottom:4rpx;'>
+                <span wx:if="list.payWay =='gold'">
+                  ￥{{res.totalRent}}/天
+                </span>
+                <span wx:else>
+                  ￥{{res.totalRent}}/天
+                </span>
+              </view>
+              <view class='x1' style='position:absolute;bottom:0;'>x{{res.quantity}}</view>
+            </view>
+          </view>
+          <view wx:if="{{list.object.orderClass == '书城'}}">
+          </view>
+          <view wx:else style='display:flex;border-top:1px solid #f6f6f6;padding-top:30rpx;maring-top:30rpx;'>
+            <view wx:if="{{res.status == '已归还'}}" style='width:50%;font-size:28rpx;color:#666666;'>实退押金</view>
+            <view wx:else style='width:50%;font-size:28rpx;color:#666666;'>实付押金</view>
+            <view style='width:50%;font-size:28rpx;color:#ff0050;text-align:right;font-weight:600;'>￥{{res.price}}</view>
+          </view>
+        </view>
+        <!-- FENJIE -->
+        <view wx:if="{{hasGh == false}}"  class="wcx" >
+          <view class="tit1" style='border-bottom:1px solid #f6f6f6;'>
+              体验区（租）
+          </view>
+          <view wx:for="{{list.object.detailList}}" wx:for-index="idx" wx:for-item="res" wx:if="{{res.status != '已归还'}}" style='display:flex;margin-top:30rpx;margin-bottom:30rpx;'>
+            <view style='width:26%;position:relative;'>
+              <view wx:if="{{res.status == '已归还'}}" class="guihuan">{{res.status}}</view>
+              <image style="width:140rpx;height:140rpx;" mode="444" src="{{pub_url}}{{res.img}}" ></image>
+            </view>
+            <view style='width:74%;position:relative;'>
+              <view style='font-size:28rpx;color:#333333;'>{{res.name}}</view>
+              <view class="tit2" style='padding-top:0rpx;'>{{res.stant}}</view>
+              <view wx:if="{{list.object.orderClass != '书城'}}" class="tit2" style='position:absolute;bottom:4rpx;'>
+                <span wx:if="list.payWay =='gold'">
+                  ￥{{res.totalRent}}/天
+                </span>
+                <span wx:else>
+                  ￥{{res.totalRent}}/天
+                </span>
+              </view>
+              <view class='x1' style='position:absolute;bottom:0;'>x{{res.quantity}}</view>
+            </view>
+          </view>
+          <view wx:if="{{list.object.orderClass == '书城'}}">
+          </view>
+          <view wx:else style='display:flex;border-top:1px solid #f6f6f6;padding-top:30rpx;maring-top:30rpx;'>
+            <view wx:if="{{res.status == '已归还'}}" style='width:50%;font-size:28rpx;color:#666666;'>实退押金</view>
+            <view wx:else style='width:50%;font-size:28rpx;color:#666666;'>实付押金</view>
+            <view style='width:50%;font-size:28rpx;color:#ff0050;text-align:right;font-weight:600;'>￥{{(all_price)}}</view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{list.object.orderClass == '书城'}}">
+      </view>
+      <view wx:else class="wcx">
+        <view class="tit1" style='border-bottom:1px solid #f6f6f6;margin-bottom:30rpx;'>租赁计费</view>
+        <view class="tit2">
+          <view style='display:flex;'>
+            <view style='width:50%;'>当前押金</view>
+            <view style='width:50%;text-align:right;'><span style="color:#666666;font-weight:600;">￥{{list.object.rentCount.currentDeposit}}</span></view>
+          </view>
+        </view>
+        <view class="tit2">
+            <view style='display:flex;'>
+              <view style='width:50%;'>当前日租金</view>
+              <view style='width:50%;text-align:right;'><span style="color:#666666;font-weight:600;">￥{{list.object.rentCount.rentDeposit}}</span></view></view>
+            </view>
+        <view class="tit2">
+          <view style='display:flex;'>
+            <view style='width:50%;'>已租天数</view>
+            <view style='width:50%;text-align:right;'><span style="color:#666666;font-weight:600;">{{list.object.rentCount.rentTime}}天</span></view>
+          </view>
+        </view>
+        <view class="tit2">
+          <view style='display:flex;'>
+            <view style='width:50%;'>已扣除押金</view>
+            <view style='width:50%;text-align:right;'><span style="color:#ff0050;font-weight:600;">￥{{list.object.rentCount.deduct}}</span></view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{list.object.status == '已归还' || list.object.status == '部分待归还'}}" class="wcx">
+        <view class="tit1" style='border-bottom:1px solid #f6f6f6;'>归还时间</view>
+        <view wx:for="{{list.object.rentTimeBean}}" wx:for-index="idx" wx:for-item="res">
+           <view class="tit2" style="color:#000000;padding-top:20rpx;padding-bottom:20rpx;"><span >·{{res.operateTime}}</span></view>
+           <view wx:for="{{list.object.rentTimeBean[idx].list}}" wx:for-index="idxx" wx:for-item="ress" class="tit2">
+           <view style='display:flex;'>
+            <view style='width:50%;'><span>{{ress.name}}</span></view>
+            <view style='width:50%;text-align:right;'>
+            实租<span>{{ress.rentDays}}</span>天
+            </view>
+           </view>
+           </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

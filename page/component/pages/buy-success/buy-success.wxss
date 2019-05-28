@@ -1,0 +1,32 @@
+.che{
+  font-size:28rpx;
+  color:#aaaaaa;
+  padding-top:10rpx;
+  padding-bottom: 60rpx;
+}
+.bf{
+  color:#333333;
+  font-size:48rpx;
+  padding-top:20rpx;
+  font-weight: 600;
+}
+.btn{
+  background: linear-gradient(135deg, #D358FF 0%, #4A3AF1 100%);
+  box-shadow:inset 8px 8px 16px 0 #CF9DFF;
+  color:#ffffff;
+  border-radius:100rpx;
+  margin-left:5%;
+  margin-right:5%;
+  line-height:94rpx;
+  margin-top:30rpx;
+}
+.btns{
+  border:1px solid #e5e5e5;
+  box-shadow:inset 8px 8px 16px 0 #eyeyey;
+  color:#666666;
+  border-radius:100rpx;
+  margin-left:5%;
+  margin-right:5%;
+  line-height:94rpx;
+  margin-top:30rpx;
+}

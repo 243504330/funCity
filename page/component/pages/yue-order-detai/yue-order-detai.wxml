@@ -1,0 +1,41 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="wcx">
+        <view class="tit1">账号信息</view>
+        <view class="tit2">昵称：<span>{{list.nickname}}</span></view>
+        <view  class="tit2">手机：<span>{{list.mobilephone}}</span></view>
+      </view>
+      <view class="wcx">
+        <view class="tit1">订单信息</view>
+        <view class="tit2" style='position:relative;overflow:inherit;'>订单编号：<span>{{list.order_no}}</span>
+           <span bindtap="copy" id="{{list.order_no}}" class="copy">复制</span>
+        </view>
+        <view class="tit2">充值时间：<span>{{list.order_time}}</span></view>
+        <view class="tit2">订单状态：<span>{{list.status}}</span></view>
+        <view class="tit2">支付方式：<span>{{list.cons_type_str}}</span></view>
+      </view>
+      <view class="wcx" >
+        <view class="tit1" style='border-bottom:1px solid #f6f6f6;'>
+          <span>充值</span>
+        </view>
+        <view style='display:flex;padding-top:30rpx;'>
+          <view style='width:50%;font-size:28rpx;color:#666666;'>余额￥{{list.buy_num}}</view>
+          <view style='width:50%;font-size:28rpx;text-align:right;'>
+            实付:
+            <span style='color:#ff0050;font-weight:600;'>￥{{list.amount}}</span>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{list.largess_list.length >= 1}}" class="wcx" style="padding-bottom:0rpx;margin-bottom:40rpx;">
+        <view class="tit1">礼品清单</view>
+        <view class="tit2">
+          <view wx:for="{{list.largess_list}}" wx:for-item="item" style='display:flex;border-top:1px solid #f6f6f6;padding-top:30rpx;padding-bottom:30rpx;'>
+            <view style='width:50%;'>{{item.name}}</view>
+            <view style='width:50%;text-align:right;'>x{{item.quantity}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

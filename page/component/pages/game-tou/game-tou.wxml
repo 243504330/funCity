@@ -1,0 +1,50 @@
+<view class="modal-bg" style='display:{{modal_flag}};'>
+  <view class="p-modal-box">
+    <view class="p-modal-title">
+      温馨提示
+    </view>
+    <view class="p-modal-content">
+      {{modal_message}}
+    </view>
+    <view class='p-modal-foot'>
+      <view bindtap='getBack' class="p-modal-cancel">
+        <span>返回</span>
+      </view>
+      <view bindtap='goBuyCoin' class="p-modal-confirm">
+        <span>购买游戏币</span>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="container">
+  <view class="page-body">
+    <view style='text-align:center;'>
+      <view style='font-size:48rpx;color:#333333;padding-top:80rpx;'>
+        请加减游戏次数
+      </view>
+      <view style='font-size:28rpx;color:#888888;padding-bottom:40rpx;'>
+        单次最高可选择10次
+      </view>
+      <view style='display:flex;'>
+        <view bindtap='jian' style='width:32%;position:relative;'>
+          <image style='width:60rpx;height:60rpx;position:absolute;top:0;bottom:0;margin:auto;right:0;' src="/img/z_jian.png"></image>
+        </view>
+        <view style='width:36%;position:relative;'>
+          <view style='font-size:144rpx;'>
+          {{num}}
+          </view>
+        </view>
+        <view bindtap='jia' style='width:32%;position:relative;'>
+          <image style='width:60rpx;height:60rpx;position:absolute;top:0;bottom:0;margin:auto;left:0;' src="/img/z_jia.png"></image>
+        </view>
+      </view>
+       <view style='color:#888888;padding-bottom:40rpx;'>
+        <view>应扣数量：{{allAmount}}枚</view>
+        <view>剩余数量：{{coin}}枚</view>
+      </view>
+      <view bindtap='sub' class='btn'>
+        确认投币
+      </view>
+    </view>
+  </view>
+</view>

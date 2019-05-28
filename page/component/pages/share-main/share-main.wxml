@@ -1,0 +1,64 @@
+
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <image mode="widthFix" style='position:absolute;width:{{scroll_width}}px;z-index:-1;' src="/img/bg_share.png"></image>
+      <view style='width:100%;opacity:0.93;padding-top:600rpx;'>
+        <view style='margin-left:40rpx;margin-right:40rpx;background:#ffffff;border-radius:20rpx;margin-bottom:40rpx;'>
+          <view style='font-size:40rpx;font-weight:600;text-align:center;padding-top:80rpx;padding-bottom:80rpx;'>
+            好友注册，即可获赠免费门票！
+          </view>
+          <view style='text-align:center;'>
+            <button data-name="shareBtn" open-type="share" style='text-align:center;'>
+              <image style='width:100rpx;height:100rpx;' src="/img/wxhy.png"></image>
+              <view style='font-size:28rpx;color:#666666;'>
+                微信好友
+              </view>
+            </button>
+          </view>
+          <view class="line"></view>
+          <view style='text-align:center;'>
+            <view style='font-size:36rpx;'>
+              <span wx:if="{{list.shareUser != ''}}">已获赠票</span>
+              <span wx:else>暂无赠票</span>
+            </view>
+            <view style='font-size:28rpx;padding-top:30rpx;padding-bottom:40rpx;'>
+              已成功分享<span style="color:#ff0050;">{{textOne}}</span>小伙伴，共获得<span style="color:#ff0050;">{{textTwo}}</span>免费票
+            </view>
+          </view>
+          <view wx:for="{{list.shareUser}}" wx:for-item="item" style='display:flex;margin-left:40rpx;margin-right:40rpx;padding-top:10rpx;'>
+            <view style='width:10%;'>
+              <image style='width:60rpx;height:60rpx;border-radius:100rpx;' src="{{pub_url}}{{item.photo}}"></image>
+            </view>
+            <view style='width:30%;font-size:28rpx;padding-left:20rpx;padding-top:10rpx;'>
+              {{item.nickname}}
+            </view>
+            <view style='width:60%;text-align:right;color:#aaaaaa;font-size:28rpx;padding-top:10rpx;'>
+              {{item.createTime}}
+            </view>
+          </view>
+          <view class="line"></view>
+          <view>
+            <view style='font-size:36rpx;text-align:center;color:#000000;font-weight:600;padding-bottom:38rpx;'>活动细则</view>
+            <view style='font-size:28rpx;color:#666666;margin-left:40rpx;margin-right:40rpx;padding-bottom:40rpx;'>
+              <view>
+                1.被推荐的新用户输入手机号，即可获赠1张免费门票，可用于门店进园娱乐；（同一手机号仅可领取一次）。
+              </view>
+              <view>
+                2.您推荐的新用户同一手机号仅可领取一次。
+              </view>
+              <view>
+                3.您邀请好友所获赠的体验券仅限本人使用，用于商业牟利将有封号风险。
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    
+    </view>
+  </view>
+</view>
+       <view style="height:{{statusBarHeight * 2 + 40}}px;position:fixed;text-align:center;width:100%;top:0;">
+           <view bindtap='back' style='position:absolute;width:100rpx;height:100rpx;top:{{statusBarHeight * 2}}rpx;z-index:999;'></view>
+        <image src="/img/back.png" style='position:absolute;width:36rpx;height:36rpx;top:0;left:15rpx;bottom:0;margin:auto;padding-top:6rpx;'></image>
+       </view>

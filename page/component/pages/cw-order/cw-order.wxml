@@ -1,0 +1,226 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section" style='background:#f9f9f9;'>
+    <view class='tou' style=''>
+      <view id="all" bindtap='chose' style='width:25%;position:relative;'>
+        <span wx:if="{{type == 'all'}}" >
+          全部
+          <span class="act-btn"></span>
+        </span>
+        <span wx:else class="def-btn">全部</span>
+      </view>
+      <view id="ticket" bindtap='chose' style='width:25%;position:relative;'>
+        <span wx:if="{{type == 'ticket'}}" >票
+           <span class="act-btn"></span>
+        </span>
+        <span wx:else class="def-btn">票</span>
+      </view>
+      <view id="game" bindtap='chose' style='width:25%;position:relative;'>
+        <span wx:if="{{type == 'game'}}">币<span class="act-btn"></span></span>
+        <span wx:else class="def-btn">币</span>
+      </view>
+      <view id="card" bindtap='chose' style='width:25%;position:relative;'>
+        <span wx:if="{{type == 'card'}}" >卡<span class="act-btn"></span></span>
+        <span wx:else class="def-btn">卡</span>
+      </view>
+    </view>
+  <swiper current="{{currentTab}}" bindchange="bindOrder" style='height:{{scroll_height}}px;width:100%;'>
+    <swiper-item>
+      <scroll-view bindscrolltoupper="upper" scroll-y style='height:{{scroll_height - 40}}px;width:100%;margin-top:84rpx;'>
+        <view wx:if="{{list == ''}}" style='text-align:center;padding-top:40%;'>
+            <image mode="widthFix" style='width:140rpx;' src='/img/no_order.png'></image>
+            <view style="color:#888888;padding-top:20rpx;">您还没有相关订单</view>
+        </view>
+        <view  wx:for="{{list}}" wx:for-index="idx" wx:for-item="item" class='box' data-type="{{item.item_type}}" id="{{item.id}}" bindtap="goOrderDetai">
+          <view class='bxc'>
+            <view class='b-l'>
+              <span wx:if="{{item.item_type == 'ticket'}}">购票</span>
+              <span wx:if="{{item.item_type == 'card'}}">购卡</span>
+              <span wx:if="{{item.item_type == 'game'}}">购币</span>
+            </view>
+            <view class="b-r">{{item.status}}</view>
+          </view>
+          <view class='bxc'>
+            <view style='width:25%;'>
+              <image style="width:140rpx;height:140rpx;border-radius:4rpx;" mode="444" src="{{pub_url}}{{item.item_image}}" ></image>
+            </view>
+            <view style='width:65%;position:relative;'>
+              <view class='ts1'>{{item.item_name}}</view>
+              <view class='ts2'>
+                <span wx:if="{{item.ticketScope != ''}}">{{item.ticketScope}}</span>
+                <span wx:else>{{item.item_remark}}</span>
+              </view>
+              <view class='ts3'>￥{{item.total_price}}</view>
+            </view>
+            <view style='width:10%;position:relative;'>
+              <view class="as">x{{item.buy_num}}</view>
+            </view>
+          </view>
+          <view class="bxc rs" style='display:block;'>
+            <span style="color:#333333;font-sise:28rpx;">实付:</span>
+            <span style="color:#ff0050;font-size:28rpx;font-weight:600;">￥{{item.unit_price}}</span>
+          </view>
+        </view>
+        <view style='padding-top:20rpx;color:#f9f9f9;'>123</view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view bindscrolltoupper="upper" scroll-y style='height:{{scroll_height - 40}}px;width:100%;margin-top:84rpx;'>
+        <view wx:if="{{ticket_list == ''}}" style='text-align:center;padding-top:40%;'>
+            <image mode="widthFix" style='width:140rpx;' src='/img/no_order.png'></image>
+            <view style="color:#888888;padding-top:20rpx;">您还没有相关订单</view>
+        </view>
+        <view wx:for="{{ticket_list}}" wx:for-index="idx" wx:for-item="item" class='box' data-type="{{item.item_type}}" id="{{item.id}}" bindtap="goOrderDetai">
+          <view class='bxc'>
+            <view class='b-l'>
+              <span>购票</span>
+            </view>
+            <view class="b-r">{{item.status}}</view>
+          </view>
+          <view class='bxc'>
+            <view style='width:25%;'>
+              <image style="width:140rpx;height:140rpx;border-radius:4rpx;" mode="444" src="{{pub_url}}{{item.item_image}}" ></image>
+            </view>
+            <view style='width:65%;position:relative;'>
+              <view class='ts1'>{{item.item_name}}</view>
+              <view class='ts2'>
+                <span wx:if="{{item.ticketScope != ''}}">{{item.ticketScope}}</span>
+                <span wx:else>{{item.item_remark}}</span>
+              </view>
+              <view class='ts3'>￥{{item.total_price}}</view>
+            </view>
+            <view style='width:10%;position:relative;'>
+              <view class="as">x{{item.buy_num}}</view>
+            </view>
+          </view>
+          <view class="bxc rs" style='display:block;'>
+            <span style="color:#333333;font-sise:28rpx;">实付:</span>
+            <span style="color:#ff0050;font-size:28rpx;font-weight:600;">￥{{item.unit_price}}</span>
+          </view>
+        </view>
+        <view style='padding-top:20rpx;color:#f9f9f9;'>123</view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view bindscrolltoupper="upper" scroll-y style='height:{{scroll_height - 40}}px;width:100%;margin-top:84rpx;'>
+        <view wx:if="{{game_list == ''}}" style='text-align:center;padding-top:40%;'>
+            <image mode="widthFix" style='width:140rpx;' src='/img/no_order.png'></image>
+            <view style="color:#888888;padding-top:20rpx;">您还没有相关订单</view>
+        </view>
+        <view wx:for="{{game_list}}" wx:for-index="idx" wx:for-item="item" class='box' data-type="{{item.item_type}}" id="{{item.id}}" bindtap="goOrderDetai">
+          <view class='bxc'>
+            <view class='b-l'>
+              <span wx:if="{{item.item_type == 'ticket'}}">购票</span>
+              <span wx:if="{{item.item_type == 'card'}}">购卡</span>
+              <span wx:if="{{item.item_type == 'game'}}">购币</span>
+            </view>
+            <view class="b-r">{{item.status}}</view>
+          </view>
+          <view class='bxc'>
+            <view style='width:25%;'>
+              <image style="width:140rpx;height:140rpx;border-radius:4rpx;" mode="444" src="{{pub_url}}{{item.item_image}}" ></image>
+            </view>
+            <view style='width:65%;position:relative;'>
+              <view class='ts1'>{{item.item_name}}</view>
+              <view class='ts2'>
+                <span>{{item.item_remark}}</span>
+              </view>
+              <view class='ts3'>￥{{item.total_price}}</view>
+            </view>
+            <view style='width:10%;position:relative;'>
+              <view class="as">x{{item.buy_num}}</view>
+            </view>
+          </view>
+          <view class="bxc rs" style='display:block;'>
+            <span style="color:#333333;font-sise:28rpx;">实付:</span>
+            <span style="color:#ff0050;font-size:28rpx;font-weight:600;">￥{{item.unit_price}}</span>
+          </view>
+        </view>
+        <view style='padding-top:20rpx;color:#f9f9f9;'>123</view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view bindscrolltoupper="upper" scroll-y style='height:{{scroll_height - 40}}px;width:100%;margin-top:84rpx;'>
+        <view wx:if="{{card_list == ''}}" style='text-align:center;padding-top:40%;'>
+            <image mode="widthFix" style='width:140rpx;' src='/img/no_order.png'></image>
+            <view style="color:#888888;padding-top:20rpx;">您还没有相关订单</view>
+        </view>
+        <view wx:for="{{card_list}}" wx:for-index="idx" wx:for-item="item" class='box' data-type="{{item.item_type}}" id="{{item.id}}" bindtap="goOrderDetai">
+          <view class='bxc'>
+            <view class='b-l'>
+              <span wx:if="{{item.item_type == 'ticket'}}">购票</span>
+              <span wx:if="{{item.item_type == 'card'}}">购卡</span>
+              <span wx:if="{{item.item_type == 'game'}}">购币</span>
+            </view>
+            <view class="b-r">{{item.status}}</view>
+          </view>
+          <view class='bxc'>
+            <view style='width:25%;'>
+              <image style="width:140rpx;height:140rpx;border-radius:4rpx;" mode="444" src="{{pub_url}}{{item.item_image}}" ></image>
+            </view>
+            <view style='width:65%;position:relative;'>
+              <view class='ts1'>{{item.item_name}}</view>
+              <view class='ts2'>
+                <span>{{item.item_remark}}</span>
+              </view>
+              <view class='ts3'>￥{{item.total_price}}</view>
+            </view>
+            <view style='width:10%;position:relative;'>
+              <view class="as">x{{item.buy_num}}</view>
+            </view>
+          </view>
+          <view class="bxc rs" style='display:block;'>
+            <span style="color:#333333;font-sise:28rpx;">实付:</span>
+            <span style="color:#ff0050;font-size:28rpx;font-weight:600;">￥{{item.unit_price}}</span>
+          </view>
+        </view>
+        <view style='padding-top:20rpx;color:#f9f9f9;'>123</view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+
+
+
+
+
+    
+    <!-- <scroll-view scroll-y style='height:{{scroll_height - 40}}px;width:100%;margin-top:84rpx;'>
+      <view wx:if="{{list == ''}}" style='text-align:center;padding-top:40%;'>
+          <image mode="widthFix" style='width:140rpx;' src='/img/no_order.png'></image>
+          <view style="color:#888888;padding-top:20rpx;">您还没有相关订单</view>
+      </view>
+      <view  wx:for="{{list}}" wx:for-index="idx" wx:for-item="item" class='box' data-type="{{item.item_type}}" id="{{item.id}}" bindtap="goOrderDetai">
+        <view class='bxc'>
+          <view class='b-l'>
+            <span wx:if="{{item.item_type == 'ticket'}}">购票</span>
+            <span wx:if="{{item.item_type == 'card'}}">购卡</span>
+            <span wx:if="{{item.item_type == 'game'}}">购币</span>
+          </view>
+          <view class="b-r">{{item.status}}</view>
+        </view>
+        <view class='bxc'>
+          <view style='width:25%;'>
+            <image style="width:140rpx;height:140rpx;border-radius:4rpx;" mode="444" src="{{pub_url}}{{item.item_image}}" ></image>
+          </view>
+          <view style='width:65%;position:relative;'>
+            <view class='ts1'>{{item.item_name}}</view>
+            <view class='ts2'>
+              <span wx:if="{{item.ticketScope != ''}}">{{item.ticketScope}}</span>
+              <span wx:else>{{item.item_remark}}</span>
+            </view>
+            <view class='ts3'>￥{{item.total_price}}</view>
+          </view>
+          <view style='width:10%;position:relative;'>
+            <view class="as">X{{item.buy_num}}</view>
+          </view>
+        </view>
+        <view class="bxc rs" style='display:block;'>
+          <span style="color:#333333;font-sise:28rpx;">实付:</span>
+          <span style="color:#ff0050;font-size:28rpx;font-weight:600;">￥{{item.unit_price}}</span>
+        </view>
+      </view>
+      <view style='padding-top:20rpx;color:#f9f9f9;'>123</view>
+    </scroll-view> -->
+    </view>
+  </view>
+</view>

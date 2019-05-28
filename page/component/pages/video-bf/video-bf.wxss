@@ -1,0 +1,73 @@
+.zcl{
+  width:35%;
+  border:1px solid #ffffff;
+  border-radius:100rpx;
+  padding-top:12rpx;
+  padding-bottom:12rpx;
+  margin-right: 5%;
+  height: 40rpx;
+  line-height: 0;
+}
+.btn{
+  bottom:0;
+  width:350rpx;
+  line-height:40px;
+  left:0;
+  right:0;
+  margin:auto;
+  background:linear-gradient(-135deg, #4A3AF1 0%, #D358FF 100%);
+  border-radius:100rpx;
+  margin-bottom:60rpx;
+}
+.buyBox{
+  position:relative;
+  margin-bottom:40rpx;
+  height:80rpx;
+  text-align:center;
+}
+.buyBtnImg{
+  position:absolute;
+  width:175px;
+  height:80rpx;
+  left:0;
+  right:0;
+  margin:auto;
+  z-index:1;
+}
+.buyFont{
+  position:absolute;
+  left:0;
+  right:0;
+  z-index:999;
+  top:18rpx;
+  bottom:0;
+  margin:auto;
+}
+page{
+
+}
+video{
+  display: block;
+}
+.wala{
+  width:30%;
+  position:relative;
+  text-align:center;
+  padding-top:6rpx;
+}
+.bala{
+  position:absolute;
+  width:50rpx;
+  height:44rpx;
+  left:0;
+  right:0;
+  margin:auto;
+}
+.lolo{
+  padding-top:50rpx;
+  position:absolute;
+  left:0;
+  right:0;
+  margin:auto;
+  font-size:24rpx;
+}

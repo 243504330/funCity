@@ -1,0 +1,54 @@
+.box{
+  display:flex;margin-top:10px;box-shadow: 0 5px 10px 0 rgba(85,85,85,0.10);padding:40rpx;border-radius:4rpx;
+}
+.card{
+  padding:40rpx;
+  background:#F39B9B;
+  border-radius:3px;
+  margin-top:40rpx;
+  color:#ffffff;
+  position:relative;
+}
+.card-sm{
+  font-size:24rpx;
+}
+.ewm{
+  position:absolute;
+  width:30px;
+  height:30px;
+  top:0;
+  bottom:0;
+  margin:auto;
+  right:40rpx;
+}
+.season{
+  background: linear-gradient(135deg, #2866FF 0%, #00A7FF 100%);
+  border-radius: 6rpx;
+}
+.measured{
+  background: linear-gradient(135deg, #2866FF 0%, #00A7FF 100%);
+  border-radius: 6rpx;
+}
+.month{
+  background: linear-gradient(135deg, #2866FF 0%, #00A7FF 100%);
+  border-radius: 6rpx;
+}
+.booksYear{
+  background: linear-gradient(134deg, #353535 0%, #6C655B 100%);
+  border-radius: 6rpx;
+}
+.half{
+  background:  linear-gradient(135deg, #FF5858 0%, #F13AB1 100%);
+  border-radius: 6rpx;
+}
+.year{
+  background: linear-gradient(135deg, #D358FF 0%, #4A3AF1 100%);
+  border-radius: 6rpx;
+}
+.see-all{
+  text-align:right;
+  color:#888888;
+  font-size:28rpx;
+  line-height:64rpx;
+  margin-right:40rpx;
+}

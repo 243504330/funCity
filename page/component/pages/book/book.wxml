@@ -1,0 +1,72 @@
+<view class="container">
+  <view class="page-body" style='background:#f9f9f9;'>
+    <view class="page-section" style='margin-bottom:200rpx;'>
+        <view wx:if="{{carList == ''}}" class="dbox">
+            <view bindtap="buyCard" style='width:50%;'>
+              <span class="card">
+                购卡
+              </span>
+            </view>
+            <view bindtap="buyTicket" style='width:50%;'>
+               <span class="ticket">
+                购票
+              </span>
+            </view>
+        </view>
+        <view wx:else class="dbox">
+            <view wx:if="{{bookList == ''}}" style='width:100%;'>
+              <span bindtap="scanBook" class="card" style="padding:24rpx 240rpx;">
+                扫码
+              </span>
+            </view>
+            <view wx:else>
+              <form bindsubmit="formSubmit" report-submit bindreset="formReset">
+                <button form-type="submit" name="type" data-type="yue" class="catchBtn">
+                <view class="dbox">
+                    <view bindtap="scanBook" style='width:50%;'>
+                      <span class="card">
+                        继续扫码
+                      </span>
+                    </view>
+                    <view bindtap='subZS' style='width:50%;'>
+                      
+                      <span class="ticket">
+                          确认租书
+                      </span>
+                     
+                    </view>
+                </view>
+                 </button>
+              </form>
+            </view>
+        </view>
+       <view wx:if="{{bookList != ''}}" style='margin-top:40rpx;'>
+        <view wx:for="{{bookList}}"  wx:for-item="item" class='dax'>
+          <view style='width:30%;position:relative;'>
+             <image class="phimg" src="{{pub_url}}{{item.image}}"></image>
+          </view>
+          <view style='width:70%;position:relative;'>
+            <view id="{{item.barCode}}" bindtap="delBook" class="gblj"></view>
+            <image src="/img/ljt.png" style="width:28rpx;height:28rpx;position:absolute;right:0;bottom:12rpx;"></image>
+            <view style='font-size:28rpx;font-weight:600;color:#333333;'>{{item.name}}</view>
+            <view style='font-size:28rpx;color:#aaaaaa;'>适用年龄：{{item.ageScopeName}}</view>
+            <view style='color:#000000;font-size:28rpx;position:absolute;bottom:4rpx;'>x{{item.quantity}}</view>
+          </view>
+        </view>
+       </view>
+       <view wx:else>
+        <view style='text-align:center;padding-top:110rpx;'>
+            <image src="/img/book.png" style='width:247rpx;height:256rpx;'></image>
+        </view>
+        <view style='margin-left:5%;margin-right:5%;'>
+          <view wx:for="{{list}}"  wx:for-item="item" class="box">
+              <text class="title">{{item.title}}</text>
+              <view style='height:10rpx;'></view>
+              <text class="content">{{item.content}}</text>
+          </view>
+        </view>
+       </view>
+       
+    </view>
+  </view>
+</view>

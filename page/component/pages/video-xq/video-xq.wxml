@@ -1,0 +1,7 @@
+<view class="container">
+  <view class="page-body" style='background:#ffffff;'>
+    <view wx:for="{{list}}" wx:for-index="idx"  wx:for-item="item" style='margin:20rpx;border:1px solid #efefef;border-radius:10rpx;'>
+      <image mode="widthFix" style='width:100%;' src="{{pub_url}}{{item.url}}"></image>
+    </view>
+  </view>
+</view>

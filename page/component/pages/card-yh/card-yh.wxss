@@ -1,0 +1,56 @@
+.box{
+  display:flex;margin-top:10px;box-shadow: 0 5px 10px 0 rgba(85,85,85,0.10);padding:40rpx;border-radius:4rpx;
+}
+.card{
+  padding:40rpx;
+  background:#F39B9B;
+  border-radius:3px;
+  margin-top:40rpx;
+  color:#ffffff;
+  position:relative;
+}
+.card-sm{
+  font-size:24rpx;
+}
+.ewm{
+  position:absolute;
+  width:30px;
+  height:30px;
+  top:0;
+  bottom:0;
+  margin:auto;
+  right:40rpx;
+}
+.season{
+  background: #A4E5BB;
+}
+.booksYear{
+  background: #C7E394;
+}
+.see-all{
+  text-align:right;
+  color:#888888;
+  font-size:28rpx;
+  line-height:64rpx;
+  margin-right:40rpx;
+}
+.half{
+  background: #9BBAF3;
+}
+.year{
+  background: #F39B9B;
+}
+.tict{
+  width:40rpx;
+  position:absolute;
+  top:0;
+  bottom:0;
+  margin:auto;
+}
+.vip{
+  width:56rpx;
+  height:28rpx;
+  padding-left:20rpx;
+  position:absolute;
+  padding-top:8rpx;
+}

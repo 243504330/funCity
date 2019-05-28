@@ -1,0 +1,133 @@
+<view style='position:fixed;background:rgba(0, 0, 0, 0.43);z-index:9;right:0;bottom:30rpx;width:100rpx;border-radius:25px;'>
+  <view style='position:relative;width:100%;height:100%;'>
+    <view style='text-align:center;z-index:999999;padding-top:40rpx;padding-bottom:40rpx;'>
+      <image bindtap='goCz' style='width:54rpx;height:46rpx;' src="/img/goldcz.png"></image>
+      <view style='font-size:24rpx;color:rgba(255, 255, 255, 0.8);'>
+        <view bindtap='goCz'>充值</view>
+        <view style='position:relative;padding-top:28rpx;padding-bottom:28rpx;'>
+          <span style="height:1px;width:70rpx;background:rgba(255, 255, 255, 0.4);position:absolute;z-index:9;left:0;right:0;margin:auto;"></span>
+        </view>
+        <!-- <view bindtap="goApp">去APP</view> -->
+        <view>
+          <button open-type="launchApp" app-parameter="wechat" binderror="launchAppError">去APP</button>
+        </view>
+      </view>
+      
+    </view>
+    
+  </view>
+</view>
+<view class="container">
+  <view class="page-body" style='background:#f9f9f9;'>
+    <view class="page-section" style='background:#f9f9f9;'>
+      <image mode="widthFix" style='width:100%;' src="/img/wallet_bg.png"></image>
+       <view style='position:absolute;width:100%;top:30rpx;'>
+           <view style='padding-left:5%;color:#555555;font-size:28rpx;padding-top:100rpx;color:#ffffff;'>可用余额</view>
+           <view style='display:flex;'>
+              <view style='width:50%;font-size:80rpx;padding-left:3%;color:#ffffff;'>￥{{sumgold}}</view>
+              <view style='width:50%;text-align:right;position:relative;'>
+                <view bindtap='goYeMx' class="yemx">余额明细</view>
+              </view>
+           </view>
+           
+          <view style='margin-left: 5%;margin-right: 5%;background: #fff;border-radius:3px;box-shadow:0 10px 20px 0 rgba(170,170,170,0.20);margin-top:40rpx;position:absolute;z-index:999;width:90%;'>
+    
+              <view style='display:flex;text-align:center;'>
+                <view bindtap='goLiuShui' id='gold' style='width:33.33%;padding-top:24rpx;padding-bottom:24rpx;z-index:999;'>
+                    <view style='color:#888888;font-size:28rpx;'>冻结余额</view>
+                    <view style='font-weight:600;'>{{sumdeposit}}</view>
+                </view>
+                <view style='width:1px;height:38px;background-color:#e5e5e5;margin-top:34rpx;'></view>
+                 <view  bindtap='goLiuShui' id='cash' style='width:33.33%;padding-top:24rpx;padding-bottom:24rpx;z-index:999;'>
+                    <view style='color:#888888;font-size:28rpx;'>现金押金</view>
+                    <view style='font-weight:600;'>{{cashdeposit}}</view>
+                </view>
+                <view style='width:1px;height:38px;background-color:#e5e5e5;margin-top:34rpx;'></view>
+                 <view  bindtap='goScore' id='{{sumscore}}' style='width:33.33%;padding-top:24rpx;padding-bottom:24rpx;z-index:999;'>
+                    <view style='color:#888888;font-size:28rpx;'>积分</view>
+                    <view style='font-weight:600;'>{{sumscore}}</view>
+                </view>
+              </view>
+        </view>
+        <!-- <view style='margin-left: 7%;margin-right: 7%;background: rgba(255, 255, 255, 0.50);padding:20px 0px;border-radius:3px;margin-top:-33px;'></view> -->
+        <view>
+         
+        </view>
+         
+      </view>
+      <scroll-view scroll-y bindscroll="scroll" style='position:absolute;width:100%;height:{{scroll_height - 200}}px;background:#f9f9f9;margin-top:40rpx;'>
+          <view style='margin-left:5%;margin-right:5%;margin-top:20rpx;background:#f9f9f9;margin-bottom:100rpx;'>
+            <view wx:if="{{myCardNum == 0}}"  class='box' bindtap="goCard" style='margin-top:0;'>
+                <view style='width:20%;position:relative;'>
+                  <image mode="aspectFill" class='m-img' src="/img/ka.png"></image>
+                </view>
+                <view style='width:70%;'>
+                  <view style='font-size:40rpx;'>卡</view>
+                  <view style='font-size:28rpx;color:#FF0050;'>余额消费享{{discount}}折起</view>
+                </view>
+                <view style='width:10%;position:relative;'>
+                    <image mode="aspectFill" class='yjt' src="/img/yjt.png"></image>
+                </view>
+            </view>
+            <view wx:else class='box'  style='display:block;margin-top:0;'>
+                  <view style='display:flex;' bindtap="goCard">
+                    <view style='width:20%;position:relative;'>
+                      <image mode="aspectFill" class='m-img' src="/img/ka.png"></image>
+                    </view>
+                    <view style='width:30%;'>
+                      <view style='font-size:40rpx;'>卡</view>
+                    </view>
+                    <view style='width:50%;position:relative;'>
+                        <view class="see-all">查看全部({{myCardNum}})</view>
+                        <image mode="aspectFill" class='yjt' src="/img/yjt.png"></image>
+                    </view>
+                  </view>
+                <view wx:for="{{cardList}}" wx:for-index="idx" wx:for-item="item" class="card {{item.cardClass}}" data-act="{{item.isActivation}}" id="{{item.id}}" bindtap='goCardDetail'>
+                  <view>{{item.cardName}}</view>
+                  <view class="card-sm">有效期至{{item.dueDate}}</view>
+                  <image mode="aspectFill" class='ewm' src="/img/ewm.png"></image>
+                </view>
+            </view>
+            <view bindtap="goTicket" class="box">
+                <view style='width:20%;position:relative;'>
+                  <image mode="aspectFill" class='m-img' src="/img/piao.png"></image>
+                </view>
+                <view style='width:70%;'>
+                  <view style='font-size:40rpx;'>票</view>
+                  <view style='font-size:28rpx;color:#FF0050;'>{{myTicketNum}}<span style="color:#888888;padding-left:5px;">张</span></view>
+                </view>
+                <view style='width:10%;position:relative;'>
+                    <image mode="aspectFill" class="yjt" src="/img/yjt.png"></image>
+                </view>
+            </view>
+            <view  bindtap="goGameCoin" class='box'>
+                <view style='width:20%;position:relative;'>
+                  <image mode="aspectFill" class='m-img' style='width:70rpx;height:70rpx;' src="/img/bi.png"></image>
+                </view>
+                <view style='width:70%;'>
+                  <view style='font-size:40rpx;'>游戏币</view>
+                  <view style='font-size:28rpx;color:#888888;'>剩余：<span style="color:#FF0050;">{{sumgamecurrency}}</span>枚</view>
+                </view>
+                <view style='width:10%;position:relative;'>
+                    <image mode="aspectFill" class='yjt' src="/img/yjt.png"></image>
+                </view>
+            </view>
+            <view class='box'>
+                <view style='width:20%;position:relative;'>
+                  <image mode="aspectFill" class='m-img' src="/img/quan.png"></image>
+                </view>
+                <view style='width:70%;'>
+                  <view style='font-size:40rpx;'>券</view>
+                  <view style='font-size:28rpx;color:#888888;'>剩余：<span style="color:#FF0050;">0</span>张</view>
+                </view>
+                <view style='width:10%;position:relative;'>
+                    <image mode="aspectFill" class='yjt' src="/img/yjt.png"></image>
+                </view>
+            </view>
+            <view style='margin-top:80rpx;color:#ffffff;'>123</view>
+          </view>
+          
+      </scroll-view>
+    </view>
+  </view>
+</view>

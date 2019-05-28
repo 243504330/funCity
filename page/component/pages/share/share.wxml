@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+
+      <image mode="widthFix" style='position:absolute;width:{{scroll_width}}px;z-index:-1;' src="/img/share_bg.png"></image>
+      <view style='padding-top:600rpx;margin-left:15%;margin-right:15%;'>
+        <view style='position:relative;'>
+          <image mode="widthFix" src="/img/share_btn.png" style='width:100%;'></image>
+          <input type="number" value='{{phone}}' bindinput="phone" placeholder="请输入手机号码" placeholder-style="color:#ffffff;" focus='{{focus}}' class='phone'></input>
+        </view>
+        <view bindtap='sub' class='{{btn}}'>
+          免费领取
+        </view>
+        <view bindtap='goticket' style='color:#30FFD9;text-align:center;text-decoration:underline;padding-top:40rpx;'>
+          立即使用门票
+        </view>
+        <view style='text-align:center;font-size:28rpx;color:#ffffff;'>
+          <view style='padding-top:70rpx;padding-bottom:30rpx;'>
+            长按识别二维码
+          </view>
+          <image src="/img/code.png" style='width:260rpx;height:260rpx;'></image>
+          <view style='padding-top:24rpx;'>
+             截屏扫码关注             
+          </view>
+          <view style='padding-bottom:40rpx;'>
+            微信公众号了解更多
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+       <image style="height:{{scroll_height}}px;width:100%;display:block;position:absolute;"
+            mode="444"
+            src="./bg.png"
+          ></image>
+        <view class="box2" style='position:absolute;width:100%;'>
+          <view class="name">
+            {{name}}
+          </view>
+          <view class="date">
+           有效期至{{dueDate}}
+          </view>
+        <view class='box'>
+            <view class="c-box">
+                <canvas bindtap='changeCode' class='canvas' canvas-id='canvas'></canvas>
+                <view>请将此二维码展示给商家</view>
+            </view>
+        </view>
+        </view>
+    </view>
+  </view>
+</view>

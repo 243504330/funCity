@@ -1,0 +1,118 @@
+<view class="container">
+  <view class="page-body" style='background:#f9f9f9;'>
+    <view class="page-section">
+    <view bindtap='back' style='position:fixed;width:100rpx;height:100rpx;top:30rpx;z-index:999;'></view>
+    <image src="/img/back.png" style='position:fixed;width:36rpx;height:36rpx;top:66rpx;left:15rpx;'></image>
+    <view style='background:#333333;'>
+      <image mode="widthFix" style='width:100%;' src="/img/xin_vip.png"></image>
+      <view style='height:20rpx;width:100%;'></view>
+      <view class="whezi">
+        <view>
+          <image mode="aspectFill" class="txiang" src="{{pub_url}}{{list.photo}}"></image>
+        </view>
+        <view class="title">
+          {{list.nickname}}
+        </view>
+        <view>
+          <span class="hbt">累计充值/消费¥500即可成为会员</span>
+        </view>
+      </view>
+    </view>
+    <view style='margin-left:5%;margin-right:5%;position:relative;'>
+      <view class='xiaobh'>
+        <view class='dingd'>
+          <view class="xtitle">累计消费</view>
+          <view class="nqma">
+            <span style="font-weight:600;">￥{{list.totalpay}}/</span>
+            <span style="color:#aaaaaa;">￥500</span>
+          </view>
+        </view>
+        <view class='dingd'>
+          <view class="xtitle">累计充值</view>
+          <view class="nqma">
+            <span style="font-weight:600;">￥<span wx:if="{{list.totalrecharge != ''}}">{{list.totalrecharge}}</span><span wx:else>0</span>/</span>
+            <span style="color:#aaaaaa;">￥500</span>
+          </view>
+        </view>
+      </view>
+    </view>
+    </view>
+    <view wx:if="{{list.viptype == 'normal'}}" style='margin-left:5%;margin-right:5%;padding-top:100rpx;'>
+      <view>
+        <view style='font-size:34rpx;font-weight:600;'>
+          VIP特权（未激活）
+        </view>
+        <view style='opacity:0.7;'>
+          <view class='wakaka'>
+          <view class='kelala'>
+            <image src="/img/zekou.png" class='theb'></image>
+          </view>
+          <view class='qqw'>
+            <view class='dudu'>会员折扣</view>
+            <view class='wuwu'>永久享受会员价折扣消费购物</view>
+          </view>
+        </view>
+        <view class='wakaka'>
+          <view class='kelala'>
+            <image src="/img/bi.png" class='theb'></image>
+          </view>
+          <view class='qqw'>
+            <view class='dudu'>免费游戏币</view>
+            <view class='wuwu'>每月1号可领取5枚免费游戏币</view>
+          </view>
+        </view>
+        <view class='wakaka'>
+          <view class='kelala'>
+            <image src="/img/dangao.png" class='theb'></image>
+          </view>
+          <view class='qqw'>
+            <view class='dudu'>生日福利</view>
+            <view class='wuwu'>会员生日当天可获赠大量枚游戏币</view>
+          </view>
+        </view>
+      </view>
+
+      </view>
+    </view>
+    <view wx:else style='margin-left:5%;margin-right:5%;padding-top:40rpx;'>
+      <view>
+        <view class='wakaka'>
+          <view class='kelala'>
+            <image src="/img/bi.png" class='theb'></image>
+          </view>
+          <view class='qqw' style='position:relative;'>
+            <view class='dudu'>免费游戏币</view>
+            <view class='wuwu'>每月1号可领取5枚免费游戏币</view>
+            <span wx:if="{{list.vipBenefits == ''}}" bindtap="getCoin" class="lingqu">领取</span>
+            <span wx:else class="lingqu-hui">已领取</span>
+          </view>
+        </view>
+        <view style='font-size:34rpx;font-weight:600;padding-top:60rpx;'>
+          VIP特权
+        </view>
+        <view style=''>
+          <view class='wakaka'>
+          <view class='kelala'>
+            <image src="/img/zekou.png" class='theb'></image>
+          </view>
+          <view class='qqw'>
+            <view class='dudu'>会员折扣</view>
+            <view class='wuwu'>永久享受会员价折扣消费购物</view>
+          </view>
+        </view>
+        <view class='wakaka'>
+          <view class='kelala'>
+            <image src="/img/dangao.png" class='theb'></image>
+          </view>
+          <view class='qqw'>
+            <view class='dudu'>生日福利</view>
+            <view class='wuwu'>会员生日当天可获赠大量枚游戏币</view>
+          </view>
+        </view>
+      </view>
+
+      </view>
+    </view>
+  </view>
+  
+</view>

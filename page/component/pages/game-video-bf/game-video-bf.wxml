@@ -1,0 +1,43 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <video id="myVideo"  style='height:{{scroll_height}}px;width:100%;position:absolute;' controls="{{false}}" loop autoplay src="{{pub_url}}{{list.videoPath}}"></video>
+       <cover-view style="height:{{statusBarHeight * 2 + 40}}px;position:relative;text-align:center;width:100%;">
+          <cover-view bindtap='back' style='position:absolute;width:60%;z-index:999;left:20%;color:#ffffff;font-weight:600;bottom:40%;'>{{list.name}} </cover-view>
+           <cover-view bindtap='back' style='position:absolute;width:100rpx;height:100rpx;top:{{statusBarHeight * 2}}rpx;z-index:999;'></cover-view>
+        <cover-image src="/img/back.png" style='position:absolute;width:36rpx;height:36rpx;top:0;left:15rpx;bottom:0;margin:auto;padding-top:6rpx;'></cover-image>
+       </cover-view>
+       <cover-view style='position:fixed;text-align:center;color:#ffffff;width:180rpx;bottom:170rpx;right:0;'>
+          <cover-view wx:if="{{list.list != ''}}" bindtap='goXq' style='position:relative;'>
+            <cover-image mode="widthFix" style='width:52rpx;position:absolute:left:0;right:0;margin:auto;top:0;' src="/img/xq.png"></cover-image>
+           <cover-view style='font-size:24rpx;padding-top:10rpx;'>详情</cover-view> 
+          </cover-view>
+          <cover-view bindtap='isLike' style='position:relative;padding-top:40rpx;'>
+            <cover-image style='width:52rpx;height:46rpx;position:absolute:left:0;right:0;margin:auto;top:0;' src="/img/{{like}}.png"></cover-image>
+           <cover-view style='font-size:28rpx;padding-top:10rpx;'>{{likeNum}}</cover-view> 
+          </cover-view>
+       </cover-view>
+        <cover-view style='position:fixed;bottom:0;color:#ffffff;width:100%;text-align:center;'>
+          <cover-view  bindtap="goGame" class="buyBox">
+            <cover-image class="buyBtnImg" src="/img/z_btn.png"></cover-image>
+            <cover-view class="buyFont">
+              购买游戏币
+            </cover-view>
+          </cover-view>
+        </cover-view>
+      <!-- <cover-view style='position:fixed;bottom:0;color:#ffffff;width:100%;text-align:center;height:100rpx;'>
+        <cover-view style='display:flex;margin-left:5%;margin-right:5%;height:80rpx;'>
+          <cover-view class='wala' bindtap='isLike'>
+           
+              <cover-image class="bala" src="./{{like}}.png"></cover-image>
+    
+            <cover-view class="lolo">
+              {{likeNum}}
+            </cover-view>
+          </cover-view>
+          <cover-view bindtap='goGame' class='zcl'>去买币</cover-view>
+        </cover-view>
+      </cover-view> -->
+    </view>
+  </view>
+</view>

@@ -1,0 +1,40 @@
+<view style='position:fixed;background:rgba(0, 0, 0, 0.43);z-index:9;right:0;bottom:30rpx;width:100rpx;border-radius:25px;'>
+  <view style='position:relative;width:100%;height:100%;'>
+    <view style='text-align:center;z-index:999999;padding-top:40rpx;padding-bottom:40rpx;'>
+      <image bindtap='goCz'style='width:54rpx;height:46rpx;' src="/img/goldcz.png"></image>
+      <view style='font-size:24rpx;color:rgba(255, 255, 255, 0.8);'>
+        <view bindtap='goCz'>充值</view>
+        <view style='position:relative;padding-top:28rpx;padding-bottom:28rpx;'>
+          <span style="height:1px;width:70rpx;background:rgba(255, 255, 255, 0.4);position:absolute;z-index:9;left:0;right:0;margin:auto;"></span>
+        </view>
+        <!-- <view bindtap="goApp">去APP</view> -->
+        <view>
+          <button open-type="launchApp" app-parameter="wechat" binderror="launchAppError">去APP</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view>
+  <image mode='widthFix' style='width:{{scroll_width}}px;position:absolute;' src="/img/wanju.png"></image>
+</view>
+<view style='padding-top:80%;position:absolute;width:100%;'>
+  
+    <view  wx:for="{{list}}"  wx:for-item="item" id="{{item.id}}" style='float:left;width:45.5%;background:#ffffff;margin-left:3%;border-radius:10rpx;margin-bottom:14rpx;'>
+    <button open-type="launchApp" app-parameter="wechat" binderror="launchAppError" style='line-height:1.6;color:#000000;text-align:left;'>
+      <view>
+        <image src="{{pub_url}}{{item.imgPath}}" style='width:{{scroll_width * 0.455}}px;height:{{scroll_width * 0.455}}px;border-top-left-radius:10rpx;border-top-right-radius:10rpx;'></image>
+      </view>
+      <view style='display:flex;padding-top:30rpx;padding-bottom:30rpx;'>
+        <view style='width:50%;padding-left:20rpx;'>
+          <view style='font-size:28rpx;font-weight:600;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;'>{{item.name}}</view>
+          <view style='font-size:28rpx;font-weight:600;color:#ff0050;'>{{item.points}}积分</view>
+        </view>
+        <view style='width:50%;position:relative;'>
+          <image style='width:30px;height:30px;position:absolute;right:20rpx;top:0;bottom:0;margin:auto;border-radius:100rpx;' src="{{pub_url}}{{item.photo}}"></image>
+        </view>
+      </view>
+      </button>
+    </view>
+</view>

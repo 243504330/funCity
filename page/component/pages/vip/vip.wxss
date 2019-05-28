@@ -1,0 +1,91 @@
+.txiang{
+  width:120rpx;
+  height:120rpx;
+  border-radius:100rpx;
+  border:4px solid #D5BB93;
+}
+.whezi{
+  position:absolute;
+  top:128rpx;
+  left:0;
+  right:0;
+  margin:auto;
+  text-align:center;
+}
+.hbt{
+  background:#ff0050;
+  color:#ffffff;
+  font-size:24rpx;
+  padding:13rpx 22rpx;
+  border-radius:100rpx;
+}
+.lingqu{
+  position:absolute;
+  right:0;
+  background:linear-gradient(135deg, #D358FF 0%, #4A3AF1 100%);
+  color:#ffffff;
+  font-size:24rpx;
+  padding:6rpx 41rpx;
+  border-radius:100rpx;
+  box-shadow:inset 4px 4px 8px 0 #CF9DFF;
+  top:20rpx;
+}
+.lingqu-hui{
+  position:absolute;
+  right:0;
+  background:#e5e5e5;
+  color:#ffffff;
+  font-size:24rpx;
+  padding:6rpx 41rpx;
+  border-radius:100rpx;
+  top:20rpx;
+}
+.title{
+  padding-top:12rpx;
+  padding-bottom:22rpx;
+  font-weight: 600;
+  color:#ffffff;
+}
+.wuwu{
+  font-size:24rpx;color:#aaaaaa;
+}
+.dudu{
+  font-size:30rpx;color:#666666;
+}
+.wakaka{
+  display:flex;padding-top:50rpx;
+}
+.kelala{
+  width:15%;position:relative;
+}
+.qqw{
+  width:85%;border-bottom:1px solid #e5e5e5;padding-bottom:40rpx;
+}
+.theb{
+  width:33px;
+  height:33px;
+  position:absolute;
+  top:10rpx;
+  margin:auto;
+  left:0;
+}
+.xiaobh{
+  display:flex;
+  text-align:center;
+  position:absolute;
+  width:100%;
+  top:-80rpx;
+  background:#ffffff;
+  box-shadow:0 5px 5px 0 rgba(0,0,0,0.05);
+  border-radius:14rpx;
+}
+.nqma{
+  font-size:40rpx;font-weight:600;
+}
+.dingd{
+  width:50%;padding-top:32rpx;padding-bottom:32rpx;
+}
+.xtitle{
+  font-size: 24rpx;
+  color:#888888;
+}

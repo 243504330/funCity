@@ -1,0 +1,144 @@
+<view class="modal-bg" style='display:{{modal_flag}};'>
+  <view class="p-modal-box">
+    <view class="p-modal-title">
+      温馨提示
+    </view>
+    <view class="p-modal-content">
+      {{modal_message}}
+    </view>
+    <view class='p-modal-foot'>
+      <view bindtap='modalCancel' class="p-modal-cancel">
+        <span>{{modal_cancel}}</span>
+      </view>
+      <view bindtap='modalConfirm' class="p-modal-confirm">
+        <span>{{modal_confirm}}</span>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="container">
+  <form bindsubmit="formSubmit" report-submit bindreset="formReset">
+  <view class="page-body">
+    <view wx:if="{{isShow =='show'}}" class="mm-box">
+      <view class='dcc' style='bottom:{{keyHeight}}px;'>
+        <image bindtap='cha' src="/img/cha.png" class="cha"></image>
+        <view class="jyPwd" style=''>请输入交易密码</view>
+        <view class='yuexf'>使用余额消费</view>
+        <view class='mm-total'>￥{{totalAmount}}</view>
+        <view class='mm-yxs'>已享受{{list.ext.discountStr}}折优惠</view>
+        <view bindtap='subPwd' class='mm-sub'>
+          <view class="mm-xbox" wx:if="{{pwdleng >= 0}}" style='border:1px solid #8530ff;'>
+            <view class='xing' wx:if="{{pwdleng > 0}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+          <view class="mm-xbox" wx:if="{{pwdleng >= 1}}" style='border:1px solid #8530ff;'>
+            <view class='xing' wx:if="{{pwdleng > 1}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+          <view class="mm-xbox" wx:if="{{pwdleng >= 2}}" style='border:1px solid #8530ff;'>
+            <view class='xing' wx:if="{{pwdleng > 2}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+          <view class="mm-xbox" wx:if="{{pwdleng >= 3}}" style='border:1px solid #8530ff;'>
+            <view class='xing' wx:if="{{pwdleng > 3}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+          <view class="mm-xbox" wx:if="{{pwdleng >= 4}}" style='border:1px solid #8530ff;'>
+            <view class='xing' wx:if="{{pwdleng > 4}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+          <view class="mm-xbox" wx:if="{{pwdleng >=5 }}" style='border:1px solid #8530ff;'>
+            <view class='xing' wx:if="{{pwdleng == 6}}">*</view>
+          </view>
+          <view wx:else class="mm-xbox">
+          </view>
+
+        </view>
+        
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="b-box" style='margin-top:0rpx;'>
+        <view style='width:100%;'>
+          <view wx:for="{{list.data}}"  wx:for-item="item" id="{{item.id}}" style='width:180rpx;padding-right:20rpx;text-align:center;float:left;padding-top:40rpx;padding-left:20rpx;' >
+            <view style='position:relative;width:140rpx;height:140rpx;'>
+              <image src="{{pub_url}}{{item.image}}" class="slide-image" style='width:140rpx;height:140rpx;border-radius:6rpx;padding-left:20rpx;'></image>
+              <view wx:if="{{item.shop_status == 'N' || item.status == 'N'}}" style='position:absolute;width:100%;height:100%;top:0;background:rgba(0, 0, 0, 0.8);font-size:28rpx;margin-left:20rpx;'>
+                <view style='color:#ffffff;padding-top:25rpx;'>
+                  <view>此项目</view>
+                  <view>不可玩</view>
+                </view>
+              </view>
+            </view> 
+             
+             <view class="name">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view style='margin-left:30rpx;margin-right:30rpx;'>
+        <view style='display:flex;padding-bottom:33rpx;border-bottom:1px solid #f6f6f6;margin-bottom:80rpx;'>
+          <view style='width:70%;font-size:28rpx;color:#333333;'>
+            数量
+          </view>
+          <view style='width:30%;text-align:center;position:relative;display:flex;'>
+            <view bindtap='jian' style='width:30%;'>
+              <image src="/img/jian.png" class="slide-image" style='width:50rpx;height:50rpx;' />
+            </view>
+            <view style='width:40%;'>
+               <span>{{count}}</span>
+            </view>
+            <view bindtap='jia' style='width:30%;'>
+              <image src="/img/jia.png" class="slide-image" style='width:50rpx;height:50rpx;' />
+            </view>
+          </view>
+        </view>
+        <view class='payway'>请选择支付方式</view>
+        <button form-type="submit" class="catchBtn">
+          <view style='display:flex;padding-top:40rpx;padding-bottom:40rpx;border-bottom:1px solid #f6f6f6;'>
+            <view style='width:10%;'>
+              <image src="/img/jd.png" class="slide-image" style='width:48rpx;height:48rpx;' />
+            </view>
+            <view style='width:60%;'>
+              <view>
+                <span style="font-size:34rpx;color:#333333;">余额支付</span>
+                <span style="font-size:28rpx;color:#aaaaaa;">（余额：{{list.ext.balance}}）</span>
+              </view>
+              <view style='padding-top:10rpx;'>
+                <span class="zkou">余额消费享{{list.ext.chargeDiscount}}折起</span>
+              </view>
+            </view>
+            <view style='width:30%;text-align:right;position:relative;'>
+              <span class="the-ye">￥{{totalAmount}}</span> 
+              <image mod="444" src="/img/yjt.png" style="width:12rpx;height:20rpx;padding-left:20rpx;"></image>
+            </view>
+          </view>
+         </button>
+
+                <view bindtap='chongzhi' style='display:flex;padding-top:40rpx;padding-bottom:40rpx;border-bottom:1px solid #f6f6f6;'>
+          <view style='width:10%;'>
+            <image src="/img/wx.png" class="slide-image" style='width:48rpx;height:48rpx;' />
+          </view>
+          <view style='width:60%;'>
+            <view>
+              <span style="font-size:34rpx;color:#333333;">微信支付</span>
+            </view>
+          </view>
+          <view style='width:30%;text-align:right;position:relative;'>
+            <span class="the-wx">￥{{cashTotal}}</span> 
+            <image mod="444" src="/img/yjt.png" style="width:12rpx;height:20rpx;padding-left:20rpx;"></image>
+          </view>
+        </view>
+        <view style='font-size:24rpx;color:#aaaaaa;padding-top:40rpx;padding-bottom:80rpx;'>
+           {{list.ext.tip_msg}}
+        </view>
+        <input bindfocus="keybo" class='payInput' bindinput="userpwd" value="{{userpwd}}" type="number" maxlength="8" focus="{{focus}}"  />
+      </view>
+    </view>
+  </view>
+  </form>
+</view>

@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view wx:for="{{list}}" data-type="{{type}}" id="{{item.id}}" bindtap='goBuyDetai' wx:for-item="item" class='xmhz' style='margin-left:5%;margin-right:5%;'>
+        <view style='width:30%;'>
+            <image class="ztp" src="{{pub_url}}{{item.image}}"></image>
+        </view>
+        <view style='width:70%;position:relative;padding-left:30rpx;'>
+          <image class="yjt" src="/img/yjt.png"></image>
+          <view class='dxt'>
+            <view class="sdz">{{item.name}}</view>
+            <view class='sxz'>{{item.remark}}</view>
+          </view>
+          <view style='position:absolute;bottom:0;'>
+            <view class='xhui'>￥{{item.priceBean.price}}<span style="padding-left:20rpx;padding-right:14rpx;">|</span>余额￥{{item.priceBean.goldPrice}}</view>
+            <view class='xhong' style='font-weight:600;'>
+            ￥{{item.priceBean.vipPrice}}<span style="padding-left:20rpx;padding-right:14rpx;">|</span>余额￥{{item.priceBean.vipGoldPrice}}
+            <image class='vipImg' src="/img/vip.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

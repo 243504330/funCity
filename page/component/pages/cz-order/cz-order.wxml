@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="page-body" style='background:#f9f9f9;'>
+    <view class="page-section">
+      <view style='text-align:center;padding-top:200rpx;' wx:if="{{list == ''}}">
+        <image mode="widthFix" style='width:140rpx;' src='/img/no_order.png'></image>
+        <view style="color:#888888;padding-top:20rpx;">您还没有相关订单</view>
+      </view>
+      <view  wx:for="{{list}}" wx:for-index="idx" wx:for-item="item" id="{{item.id}}"
+      bindtap="goDetai" class='box'>
+        <view style='display:flex;'>
+          <view class="tl">
+            充值
+          </view>
+          <view class="tr">
+            <span wx:if="item.status == '已完成'">{{item.status}}</span>
+            <span wx:else style="color:#ff0050;">{{item.status}}</span>
+          </view>
+        </view>
+        <view>
+          <span class="sl">￥{{item.amount}}</span>
+          <span class="sr"></span>
+        </view>
+        <view style='display:flex;'>
+          <view class="bl">
+            <span style="padding-right:6rpx;">充值时间：</span>{{item.order_time}}
+          </view>
+          <view class="br">
+            <span>实付：</span>
+            <span style="color:#ff0050;font-weight:600;">￥{{item.recharge_num}}</span>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,87 @@
+.title{
+  font-weight: 600;
+}
+button{
+  background:rgba(0, 0, 0, 0);
+  padding:0;
+  margin:0;
+  font-size:24rpx;
+  color:rgba(0, 0, 0, 0);
+  border:none;
+  line-height: 50rpx;
+  text-align: left;
+}
+button::after {
+  border: none;
+}
+.button-hover{
+  color:rgba(0, 0, 0, 0);
+  background-color:rgba(0, 0, 0, 0);
+  border:none;
+}
+.content{
+  font-size: 28rpx;
+  color:#666666;
+}
+.zsbtn{
+  text-align:center;
+  margin-top:80rpx;
+  background:#9fee6e;
+  color:#ffffff;
+  margin-left:5%;
+  margin-right:5%;
+  line-height:94rpx;
+  border-radius:8rpx;
+  box-shadow:0 5px 10px 0 rgba(159,227,99,0.30);
+}
+.dax{
+  display:flex;
+  margin-left:5%;
+  margin-right:5%;
+  padding:30rpx;
+  border-radius:8rpx;
+  margin-bottom:30rpx;
+  background: #ffffff;
+}
+.phimg{
+  width:160rpx;
+  height:160rpx;
+}
+.gblj{
+  width:80rpx;
+  height:80rpx;
+  position:absolute;
+  right:-20rpx;
+  bottom:0;
+  z-index: 999;
+}
+.box{
+  margin-bottom:60rpx;
+  padding-bottom:60rpx;
+  border-bottom:1px solid #d8d8d8;
+}
+.dbox{
+  position:fixed;
+  display: flex;
+  bottom:0;
+  background:#ffffff;
+  width:100%;
+  text-align: center;
+  box-shadow:0 -3px 8px 0 rgba(136,136,136,0.30);
+  padding-top:40rpx;
+  padding-bottom:40rpx;
+}
+.card{
+  padding:24rpx 110rpx;
+  background: linear-gradient(135deg, #D358FF 0%, #4A3AF1 100%);
+  box-shadow: inset 4px 4px 8px 0 #CF9DFF;
+  color:#ffffff;
+  border-radius:100rpx;
+}
+.ticket{
+  padding:24rpx 110rpx;
+  background:linear-gradient(135deg, #FF5858 0%, #FF6060 100%);
+  box-shadow: inset 4px 4px 8px 0 #FFC79D;
+  color:#ffffff;
+  border-radius:100rpx;
+}

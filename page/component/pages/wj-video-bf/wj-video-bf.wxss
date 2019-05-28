@@ -1,0 +1,116 @@
+@import "/css/lib.wxss";
+.zcl{
+  width:40%;
+  border:1px solid #ffffff;
+  border-radius:100rpx;
+  padding-top:12rpx;
+  padding-bottom:12rpx;
+  margin-right: 3%;
+  opacity: 0.8;
+  height: 40rpx;
+  line-height: 0;
+}
+.wala{
+  width:20%;
+  position:relative;
+  text-align:center;
+  padding-top:6rpx;
+}
+.bala{
+  position:absolute;
+  width:50rpx;
+  height:44rpx;
+  left:0;
+  right:0;
+  margin:auto;
+}
+.lolo{
+  padding-top:50rpx;
+  position:absolute;
+  left:0;
+  right:0;
+  margin:auto;
+  font-size:24rpx;
+}
+.ximg{
+  width:180rpx;
+  height:180rpx;
+  position:absolute;
+  left:0;
+  margin:auto;
+  top:10rpx;
+  border-radius:8rpx;
+  border:1px solid #f9f9f9;
+}
+.rhan{
+  text-align:left;
+  padding-top:100rpx;
+  color:#333333;
+  position: relative;
+}
+.guige{
+  text-align:left;
+  padding-top:30rpx;
+  font-size:28rpx;
+  color:#888888;
+  padding-left: 5%;
+  background: #ffffff;
+  position:relative;
+}
+.btn-act{
+  border:1px solid #9d4cf9;
+  padding:14rpx 36rpx;
+  border-radius:8rpx;
+  background:#9d4cf9;
+  color:#ffffff;
+  margin-right: 20rpx;
+  font-size: 26rpx;
+  float:left;
+  line-height: 0;
+}
+.btn-def{
+  border:1px solid #9b9b9b;
+  padding:14rpx 36rpx;
+  border-radius:8rpx;
+  background:#ffffff;
+  color:#9b9b9b;
+  margin-right: 20rpx;
+  font-size: 26rpx;
+  float:left;
+  line-height: 0;
+}
+.gmsl{
+  display:flex;
+  padding-top:50rpx;
+  font-size:28rpx;
+  text-align:left;
+  color:#888888;
+  padding-bottom:50rpx;
+  padding-left: 5%;
+  padding-right: 5%;
+  background: #ffffff;
+}
+
+.sub{
+  line-height:98rpx;
+  color:#ffffff;
+  padding-top:70rpx;
+  font-size:32rpx;
+  padding-bottom:30rpx;
+  position:relative;
+  background: #ffffff;
+}
+.cha{
+  width:28rpx;
+  height:28rpx;
+  position:absolute;
+  right:30rpx;
+  top:80rpx;
+  z-index: 999999;
+}
+.d-box{
+  height:100%;
+  position:absolute;
+  width:100%;
+  background:rgba(0,0,0,0.40);
+}

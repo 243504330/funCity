@@ -1,0 +1,58 @@
+<view wx:if="{{list == ''}}" style=''>
+  <view style='text-align:center;position:absolute;top:30%;left:0;right:0;margin:aut0;'>
+    <image style='width:138rpx;' mode="widthFix" src="/img/babyda.png"></image>
+    <view style='color:#888888;padding-top:10rpx;'>暂时无宝宝档案</view>
+  </view>
+  <view style='text-align:center;padding-bottom:80rpx;position:absolute;bottom:0;left:0;right:0;margin:aut0;'>
+    <view style='position:relative;margin-bottom:60rpx;margin-top:20rpx;'>
+      <image wx:if="{{notice != ''}}" style='width:300rpx;position:absolute;left:0;right:0;margin:auto;z-index:-1;' mode="widthFix" src="/img/song_bg.png"></image>
+      <view wx:if="{{notice != ''}}" style='font-size:28rpx;color:#ffffff;padding-top:6rpx;'>{{notice}}</view>
+    </view>
+    <span bindtap="creat" class='sub'>新建档案</span>
+  </view>
+</view>
+<view wx:else>
+<view >
+  <view bindtap='goDetai' wx:for="{{list}}" wx:for-item="item" id="{{item.id}}" data-image="{{item.image}}"  data-nickname="{{item.nickname}}" data-relation="{{item.relation}}" data-sex="{{item.sex}}" data-birthday="{{item.birthday}}" data-type="{{item.card}}" style='margin-top:26rpx;width:46%;float:left;margin-left:2%;margin-right:2%;background:#ffffff;'>
+    <view>
+      <image style='width:336rpx;height:496rpx;' src="{{pub_url}}{{item.image}}"></image>
+    </view>
+    <view style='padding-left:30rpx;padding-right:30rpx;padding-top:20rpx;position:relative;'>
+      <view style='display:flex;'>
+        <view style='width:70%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;'>{{item.nickname}}<image wx:if="{{item.sex == 'B'}}" style='width:26rpx;height:26rpx;padding-left:10rpx;' src="/img/boy.png"></image>
+        <image wx:else style='width:26rpx;height:26rpx;padding-left:10rpx;' src="/img/girl.png"></image></view>
+        
+        <view style='width:30%;'>
+          <span wx:if="{{item.card != 'N'}}" class="ct">卡</span>
+          <span wx:if="{{item.ticket != 'N'}}" class="ct">票</span>
+        </view>
+      </view>
+      <!-- <view style='font-weight:600;font-size:36rpx;position:relative;  white-space:nowrap;text-overflow:ellipsis;overflow:hidden;'>
+      <span>{{item.nickname}}</span>
+      <image wx:if="{{item.sex == 'B'}}" style='width:26rpx;height:26rpx;padding-left:10rpx;' src="/img/boy.png"></image>
+      <image wx:else style='width:26rpx;height:26rpx;padding-left:10rpx;' src="/img/girl.png"></image>
+        <span wx:if="{{item.card != 'N'}}" class="ct">卡</span>
+        <span wx:if="{{item.ticket != 'N'}}" class="ct">票</span>
+      </view>
+       -->
+    </view>
+    <view style='padding-left:30rpx;padding-right:30rpx;font-size:28rpx;color:#888888;padding-bottom:20rpx;padding-top:6rpx;'>{{item.birthday}}</view>
+  </view>
+  <view bindtap="creat" style='margin-top:26rpx;width:46%;float:left;margin-left:2%;margin-right:2%;background:#ffffff;margin-bottom:120rpx;'>
+    <view style='position:relative;width:336rpx;height:496rpx;'>
+      <view class='wmhz'>
+        <image style='width:90rpx;height:90rpx;' src="/img/yuanjia.png"></image>
+        <view style='color:#dddddd;'>添加新档案</view>
+      </view>
+    </view>
+    <view style='padding-left:30rpx;padding-right:30rpx;padding-top:20rpx;position:relative;'>
+      <view style='font-weight:600;font-size:36rpx;position:relative;color:#ffffff;'>
+      小土豆
+      </view>
+    </view>
+    <view style='padding-left:30rpx;padding-right:30rpx;font-size:28rpx;color:#ffffff;padding-bottom:20rpx;padding-top:6rpx;'>2015/05/02</view>
+  </view>
+  </view>
+
+  
+</view>

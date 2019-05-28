@@ -1,0 +1,33 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+
+      <image mode="widthFix" style='position:absolute;width:{{scroll_width}}px;z-index:-1;top:-100rpx;' src="/img/wuzi.png"></image>
+      <image mode="widthFix" style='width:{{scroll_width - 30}}px; margin-left:30rpx;padding-top:40rpx;position:absolute;z-index:-1;' src="/img/share_suc.png"></image>
+      <view style='margin-left:30rpx;padding-top:40rpx;text-align:center;margin-right:30rpx;'>
+        <image style='width:170rpx;height:170rpx;padding-top:70rpx;' src="/img/success.png"></image>
+        <view style='font-size:42rpx;color:#333;font-weight:600;padding-top:20rpx;'>
+          恭喜您！
+        </view>
+        <view style='font-size:42rpx;color:#333;font-weight:600;'>
+          获得新人体验礼包
+        </view>
+        <view style='color:#666666;padding-top:20rpx;font-size:28rpx;'>
+          已放入您{{phone}}账户
+        </view>
+        <view bindtap='sub' class="btn">
+          立即使用
+        </view>
+      </view>
+      <view style='margin-top:100rpx;margin-left:30rpx;margin-right:30rpx;background:#ffffff;opacity:0.9;border-radius:16rpx;text-align:center;margin-bottom:50rpx;padding-bottom:50rpx;'>
+        <view style='font-size:36rpx;padding-top:50rpx;padding-bottom:38rpx;'>
+          新人体验礼包规则
+        </view>
+        <view style='font-size:28rpx;color:#666666;padding-left:40rpx;padding-right:40rpx;'>
+          规则：新用户首次登录梦幻城堡小程序/APP，并绑定手机号，可免费获赠新人体验礼包，登录后可在钱包查看，同一手机号仅可领取一次。
+          <view>期限：自领取日起，票类有效期1年。其他无限制。</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

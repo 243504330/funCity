@@ -1,0 +1,80 @@
+<view class="container">
+  <view style='background:#fffcec;line-height:60rpx;font-size:24rpx;color:#888888;text-align:center;'>{{notice}}<span style="color:#ff0050;">{{hm_notice}}</span></view>
+  <view class="page-body">
+    <view class="page-section">
+    <view class="btn">
+      <view bindtap='chongzhi' style='line-height:94rpx;'>微信支付</view>
+    </view>
+      <view style=';margin-left:5%;margin-right:5%;'>
+        <view style="font-size:48rpx;font-weight:600;">{{result.object.nickname}}</view>
+        <view style='font-size:28rpx;color:#888888;'>充值ID：{{result.object.mobilephone}}</view>
+        <view style='display:flex;margin-bottom:60rpx;padding-top:40rpx;'>
+          <view bindtap="choseTc" data-key='0' id="{{orderList[0].id}}" class='{{orderList[0].id == choseid ? "act-box" : "box"}}'>
+            <view style='font-size:28rpx;font-weight:600;'>
+              ￥{{orderList[0].goldNum}}
+            </view>
+          </view>
+          <view class="lie"></view>
+          <view bindtap="choseTc" data-key='1' id="{{orderList[1].id}}" class='{{orderList[1].id == choseid ? "act-box" : "box"}}'>
+            <view style='font-size:28rpx;font-weight:600;'>
+              ￥{{orderList[1].goldNum}}
+            </view>
+          </view>
+          <view class="lie"></view>
+          <view bindtap="choseTc" data-key='2' id="{{orderList[2].id}}"class='{{orderList[2].id == choseid ? "act-box" : "box"}}'>
+            <view style='font-size:28rpx;font-weight:600;'>
+              ￥{{orderList[2].goldNum}}
+            </view>
+          </view>
+          <view class="lie"></view>
+          <view bindtap="choseTc" data-key='3' id="{{orderList[3].id}}" class='{{orderList[3].id == choseid ? "act-box" : "box"}}'>
+            <view style='font-size:28rpx;font-weight:600;'>
+              ￥{{orderList[3].goldNum}}
+            </view>
+          </view>
+          
+        </view>
+         <view style='widht:100%;display:flex;height20rpx;'>
+            <view style='width:25%;position:relative;'>
+              <view wx:if="{{key == 0}}">
+                <image mode="444" class='img' src='/img/sj.png'></image>
+              </view>
+            </view>
+           <view style='width:25%;position:relative;'>
+               <view wx:if="{{key == 1}}">
+                <image mode="444" class='img' src='/img/sj.png'></image>
+              </view>
+           </view>
+           <view style='width:25%;position:relative;;'>
+               <view wx:if="{{key == 2}}">
+                <image mode="444" class='img' src='/img/sj.png'></image>
+              </view>
+           </view>
+           <view style='width:25%;position:relative;'>
+              <view wx:if="{{key == 3}}">
+                <image mode="444" class='img' src='/img/sj.png'></image>
+              </view>
+           </view>
+         </view>
+         <view style=''>
+          <scroll-view scroll-y class="kuang">
+            <view style='padding:5%;'>
+              <view style='font-weight:600;margin-bottom:60rpx;'>
+                礼品清单
+              </view>
+              <view wx:for="{{orderList[key].rechargeLargess}}"  wx:for-item="item" class='lb'>
+                <view style='width:60%;'>
+                  {{item.name}}
+                </view>
+                <view style='width:40%;text-align:right;'>
+                  <span style="padding-right:5rpx;">x</span>{{item.number}}
+                </view>
+              </view>
+            </view>
+             
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

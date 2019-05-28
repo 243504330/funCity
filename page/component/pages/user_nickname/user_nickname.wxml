@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view style='margin-left:5%;margin-right:5%;'>
+        <view class="title">
+          昵称
+        </view>
+        <view class='st'>
+          <input maxlength="8" class="inp" bindinput="nickname" value='{{nickname}}'></input>
+          <view class="olai" bindtap='cha'>
+           </view>
+            <image class="cha" src="/img/xiaochu.png"></image>
+         
+        </view>
+        <view>
+          <view bindtap='save' class="{{btn}}">保存</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

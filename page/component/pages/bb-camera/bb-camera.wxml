@@ -1,0 +1,9 @@
+
+<camera  device-position="{{device}}" flash="off" binderror="error" style="display:{{cameraType}};width:{{scroll_width}}px;height:{{scroll_height}}px;z-index:-1;"></camera>
+<cover-image style='bottom:0;position:fixed;width:100%;height:{{scroll_width * 2.164}}px;z-index:9999999;' src="/img/face.png"></cover-image>
+<cover-view  bindtap='takePhoto'  class="biank">
+  <cover-view class="wy"></cover-view>
+  <cover-view class="ly"></cover-view>
+</cover-view>
+<cover-image bindtap='close' class="xia" src="/img/xia.png"></cover-image>
+<cover-image bindtap='changeType' class="xj" src="/img/camera.png"></cover-image>
